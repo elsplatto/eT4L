@@ -1,0 +1,368 @@
+{
+    "parentCategories": [
+        {
+            "parentId": 1,
+            "categories": [
+                {
+                    "id": 101,
+                    "label": "English",
+                    "subCategories": [
+                        {
+                            "id": 501,
+                            "label": "Reading"
+                        },
+                        {
+                            "id": 502,
+                            "label": "Prose fiction"
+                        },
+                        {
+                            "id": 503,
+                            "label": "Poetry"
+                        },
+                        {
+                            "id": 504,
+                            "label": "Talking and Listening"
+                        },
+                        {
+                            "id": 505,
+                            "label": "Drama"
+                        },
+                        {
+                            "id": 506,
+                            "label": "Nonfiction or film or media or multimedia texts"
+                        }
+                    ]
+                },
+                {
+                    "id": 102,
+                    "label": "Creative Arts",
+                    "subCategories": [
+                        {
+                            "id": 601,
+                            "label": "Art"
+                        },
+                        {
+                            "id": 602,
+                            "label": "Dance"
+                        },
+                        {
+                            "id": 603,
+                            "label": "Drama"
+                        },
+                        {
+                            "id": 604,
+                            "label": "Music"
+                        }
+                    ]
+                },
+                {
+                    "id": 103,
+                    "label": "Business and Economics"
+                },
+                {
+                    "id": 104,
+                    "label": "Mathematics",
+                    "subCategories": [
+                        {
+                            "id": 701,
+                            "label": "Numbers"
+                        },
+                        {
+                            "id": 702,
+                            "label": "Data"
+                        },
+                        {
+                            "id": 703,
+                            "label": "Space and Geometry"
+                        },
+                        {
+                            "id": 704,
+                            "label": "Patterns and algebra"
+                        },
+	                    {
+                            "id": 705,
+                            "label": "Measurement"
+                        },
+	                    {
+                            "id": 706,
+                            "label": "Working mathematically"
+                        }
+                    ]
+                },
+                {
+                    "id": 105,
+                    "label": "Physical Education Health and Personal Development",
+                    "subCategories": [
+                        {
+                            "id": 1201,
+                            "label": "Sport"
+                        },
+                        {
+                            "id": 1202,
+                            "label": "Community and Family Studies"
+                        },
+                        {
+                            "id": 1203,
+                            "label": "Personal Development, Health and Physical Education"
+                        },
+                        {
+                            "id": 1204,
+                            "label": "Health"
+                        }
+                    ]
+                },
+                {
+                    "id": 106,
+                    "label": "Careers"
+                },
+                {
+                    "id": 107,
+                    "label": "Science (S4-S6)",
+                    "subCategories": [
+                        {
+                            "id": 801,
+                            "label": "Biology"
+                        },
+                        {
+                            "id": 802,
+                            "label": "Earth and Environmental"
+                        },
+                        {
+                            "id": 803,
+                            "label": "Senior Science"
+                        },
+                        {
+                            "id": 804,
+                            "label": "Chemistry"
+                        },
+	                    {
+                            "id": 805,
+                            "label": "Physics"
+                        }
+                    ]
+                },
+                {
+                    "id": 108,
+                    "label": "Technology and Applied Sciences",
+                    "subCategories": [
+                        {
+                            "id": 1101,
+                            "label": "Computer education"
+                        },
+                        {
+                            "id": 1102,
+                            "label": "Engineering Studies"
+                        },
+                        {
+                            "id": 1103,
+                            "label": "Information Processes and Technology"
+                        },
+                        {
+                            "id": 1104,
+                            "label": "Agriculture"
+                        },
+	                    {
+                            "id": 1105,
+                            "label": "Food Technology"
+                        },
+	                    {
+                            "id": 1106,
+                            "label": "Software Design and Development"
+                        },
+	                    {
+                            "id": 1107,
+                            "label": "Design and Technology"
+                        },
+	                    {
+                            "id": 1108,
+                            "label": "Industrial Technology"
+                        },
+	                    {
+                            "id": 1109,
+                            "label": "Textiles and Design"
+                        }
+                    ]
+                },
+                {
+                    "id": 109,
+                    "label": "Welfare"
+                },
+                {
+                    "id": 110,
+                    "label": "Science and Technology (ES1-S3)",
+                    "subCategories": [
+                        {
+                            "id": 901,
+                            "label": "Environmental education"
+                        },
+                        {
+                            "id": 902,
+                            "label": "Science"
+                        },
+                        {
+                            "id": 903,
+                            "label": "Computer education"
+                        }
+                    ]
+                },
+                {
+                    "id": 111,
+                    "label": "Languages",
+                    "subCategories": [
+                        {
+                            "id": 1301,
+                            "label": "French"
+                        }
+                    ]
+                },
+                {
+                    "id": 112,
+                    "label": "Special Education"
+                },
+                {
+                    "id": 113,
+                    "label": "Human Society and Environment",
+                    "subCategories": [
+                        {
+                            "id": 1001,
+                            "label": "Social Studies"
+                        },
+                        {
+                            "id": 1002,
+                            "label": "History"
+                        },
+                        {
+                            "id": 1003,
+                            "label": "Geography"
+                        },
+                        {
+                            "id": 1004,
+                            "label": "Aboriginal Studies"
+                        },
+	                    {
+                            "id": 1005,
+                            "label": "Economics and Business"
+                        },
+	                    {
+                            "id": 1006,
+                            "label": "Studies of Religion"
+                        },
+	                    {
+                            "id": 1007,
+                            "label": "Society and Culture"
+                        }
+                    ]
+                },
+                {
+                    "id": 114,
+                    "label": "Life Skills",
+                    "subCategories": [
+                        {
+                            "id": 1401,
+                            "label": "Citizenship and Society Life Skills"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "parentId": 2,
+            "categories": [
+                {
+                    "id": 201,
+                    "label": "Literacy"
+                },
+                {
+                    "id": 202,
+                    "label": "Collaboration"
+                },
+                {
+                    "id": 203,
+                    "label": "Creativity"
+                },
+                {
+                    "id": 204,
+                    "label": "Numeracy"
+                },
+                {
+                    "id": 205,
+                    "label": "Critical Thinking and Problem Solving"
+                },
+                {
+                    "id": 206,
+                    "label": "Presentation"
+                },
+                {
+                    "id": 207,
+                    "label": "Research"
+                }
+            ]
+        },
+        {
+            "parentId": 3,
+            "categories": [
+                {
+                    "id": 301,
+                    "label": "Podcast"
+                },
+                {
+                    "id": 302,
+                    "label": "Word Processing"
+                },
+                {
+                    "id": 303,
+                    "label": "Games Creation"
+                },
+                {
+                    "id": 304,
+                    "label": "Movie making"
+                },
+                {
+                    "id": 305,
+                    "label": "Digital Publications"
+                },
+                {
+                    "id": 306,
+                    "label": "Simulation Software"
+                },
+                {
+                    "id": 307,
+                    "label": "Research"
+                },
+                {
+                    "id": 308,
+                    "label": "Graphic Design"
+                },
+                {
+                    "id": 309,
+                    "label": "Multimedia"
+                },
+                {
+                    "id": 310,
+                    "label": "Interactive Learning Objects"
+                }
+            ]
+        },
+        {
+            "parentId": 4,
+            "categories": [
+                {
+                    "id": 401,
+                    "label": "Accessibility"
+                },
+                {
+                    "id": 402,
+                    "label": "Learning Activity"
+                },
+                {
+                    "id": 403,
+                    "label": "Development Tools"
+                },
+                {
+                    "id": 404,
+                    "label": "Teacher Planning Tools"
+                }
+            ]
+        }
+    ]
+}
