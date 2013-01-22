@@ -61,6 +61,8 @@ textarea {
 }
 
 
+
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -86,7 +88,7 @@ header h1 a {
 }
 
 h2 {
-	font-size:30px;
+	font-size:28px;
 	text-shadow: 1px 1px 0px #f6f9fa;
 	padding:0 0 5px 0;
 	margin:0;
@@ -103,6 +105,7 @@ h3 {
 
 a {
 	text-decoration:none;
+	color:#3d7d92;
 }
 
 a:hover {
@@ -317,11 +320,11 @@ header a {
 	overflow:hidden;
 }
 
-#filterArea .lastRow label {
+#filterArea .lastRow label.hide {
 	display:none;
 }
 
-#filterArea .lastRow label:first-child {
+#filterArea .lastRow label {
 	display:inline-block;
 }
 
@@ -380,7 +383,7 @@ header a {
 	color:#333;
 }
 
-#filterArea select option:first-child, #filterArea select option:checked {
+#filterArea select option:first-child, #filterArea select option:checked, #filterArea select option:selected {
 	color:#fff;
 }
 
@@ -577,7 +580,7 @@ input:-moz-input-placeholder {
 	background-position:0 -38px;
 }
 
-.no-cssgradients nav {
+.no-cssgradients nav#primaryNav {
 	background: #3d7d92 url(img/navBg.png) bottom left repeat-x;
 }
 
@@ -604,7 +607,9 @@ nav#primaryNav {
 }
 
 nav .navContainer {	
+	clear:both;
 	width:1015px;
+	height:auto;
 	padding:0 10px 0 0;
 	margin:0 auto;
 	display:block;
@@ -674,10 +679,14 @@ nav .navContainer {
 }
 
 #secondaryNav {
+	clear:both;
 	position:relative;
 	background-color:#d9dda3;
 	margin:0;
 	padding:0;
+	width:100%;
+	height:auto;
+	overflow:hidden;
 }
 
 #tertiaryNav {
@@ -714,7 +723,7 @@ nav .navContainer {
 #secondaryNav ul li.active, #tertiaryNav ul li.active {
 	outline:1px solid transparent;
 	border-radius: 5px;		
-	width:308px;
+	width:309px;
 }
 
 #secondaryNav ul li a {
@@ -829,7 +838,8 @@ nav .navContainer {
 	text-overflow:ellipsis;
 }
 
-.appSection .bigRightLink {
+.appSection .bigRightLink,
+.appSection .bigLeftLink {
 	float:right;
 	color:#3d7d92;
 	font-size:24px;	
@@ -840,7 +850,13 @@ nav .navContainer {
 	top:2px;
 }
 
-.appSection .bigRightLink:after {
+.appSection .bigLeftLink {
+	float:left !important;
+	padding:0 0 0 20px !important;
+}
+
+.appSection .bigRightLink:after,
+.appSection .bigLeftLink:after {
 	content: '';
 	position:absolute;
 	top:7px;
@@ -850,6 +866,11 @@ nav .navContainer {
 	z-index: -1;
 	background-image: url(img/sprite-1.png);
 	background-position:-14px -342px;
+}
+
+.appSection .bigLeftLink:after {
+	left:0;
+	background-position:0 -341px;
 }
 
 .bottom {
@@ -1004,7 +1025,7 @@ a.toggleClass:before {
 }
 
 #views button, #order button { 
-	padding:;
+	
 }
 	
 
@@ -1051,12 +1072,8 @@ a.toggleClass:before {
 	background-position:0 -70px;
 }
 
-.buttonContainer {
+button {
 	font-size:14px;
-}
-
-.buttonContainer button {
-	margin:0 0 0 5px;
 	position:relative;
 	background-image: linear-gradient(bottom, #afafaf 23%, #d1d1d1 87%);
 	background-image: -o-linear-gradient(bottom, #afafaf 23%, #d1d1d1 87%);
@@ -1078,7 +1095,7 @@ a.toggleClass:before {
 	box-shadow:2px 3px 2px 0 #7b7b7b;
 }
 
-.buttonContainer button.on {
+button.on {
 	background-image:none;
 	background-color:#afafaf;
 	border-color:#757575;
@@ -1087,6 +1104,18 @@ a.toggleClass:before {
 	text-shadow:1px 1px 0 #8d8d8d;
 	top:2px;
 	box-shadow:1px 1px 1px 0 #fff;
+}
+
+.buttonContainer {
+	font-size:14px;
+}
+
+.buttonContainer button {
+	margin:0 0 0 5px;	
+}
+
+.buttonContainer button.on {
+	
 }
 
 #viewByList, #viewByThumb {
@@ -1397,6 +1426,127 @@ a.toggleClass:before {
 	height:auto;
 }
 
+.appContent .summary {
+	margin:10px 0 0 0;
+	padding: 0 0 40px 0;
+	width:100%;
+	height:auto;
+	font-size:14px;
+	overflow:hidden;
+}
+
+.summary .imageContainer {
+	position:relative;
+	float:left;
+	width:410px;
+	height:auto;
+	overflow:hidden;
+	display:inline-block;
+	margin-bottom:25px;
+}
+
+.summary .imageContainer img {
+	box-shadow:2px 3px 2px 0 #bebfbf;
+}
+
+.summary .description {
+	display:inline-block;
+	position:relative;
+	float:left;
+	width:605px;
+	height:auto;
+	overflow:hidden;
+	color:#4d4d4d;
+	overflow:hidden;
+	margin-bottom:25px;
+}
+
+.summary p {
+	padding: 15px 0;
+	margin:0;
+	line-height:22px;
+}
+
+.summary .description p {
+	padding: 15px;
+}
+
+.summary .description p:first-child {
+	padding-top: 0 !important;
+}
+
+.summary .description h3 {
+	padding: 0 15px;
+	float:left;
+	width:auto;
+	margin:0 0 15px 0;
+} 
+
+.summary .description table {
+	margin:15px;
+	clear:both;
+	display:block;
+}
+
+.summary .description table .key {
+	width: 144px;
+	vertical-align:top;
+}
+
+.summary .description table .value {
+	padding:0 0 15px 15px;
+	vertical-align:top;
+}
+
+.summary .description div.green {
+	padding:5px 10px;
+	float:left;
+	background-color:#3d7d92;
+	font-size:12px;
+	color:#fff;
+	border:1px solid transparent;
+	border-radius:15px;
+}
+
+.summary .description div.boxLeft,
+.summary .description div.boxRight {
+	position: relative;
+	padding:15px;
+	width:250px;
+	height:102px;
+	float:left;
+	box-shadow:2px 3px 2px 0 #bebfbf;
+	color:#fff;
+	font-size:14px;
+}
+
+.summary .description div.boxRight {
+	float:right !important;
+}
+
+
+.boxLeft .greenLgeButton, .boxRight .greenLgeButton, 
+.boxLeft .purpleMedButton, .boxRight .purpleMedButton {
+	position:absolute;
+	left:15px;
+	bottom:10px;
+}
+
+.summary .description span.largeGrey {
+	float:left;
+	color:#4d4d4d;
+	font-size:24px;
+	margin:45px 10px;
+}
+
+.purpleStripe {
+	background:transparent url(img/purpleStripe.gif);
+}
+
+.greenStripe {
+	background:transparent url(img/greenStripe.gif);
+}
+
 .appSection {
 	position:relative;
 	display:block;
@@ -1554,7 +1704,7 @@ a.toggleClass:before {
 	clear:both;
 	width:985px;
 	height:32px;
-	padding:5px 15px 5px 10px;
+	padding:5px 15px 5px 5px;
 	box-shadow:2px 3px 2px 0 #bebfbf;
 	background-color:#fff;
 	margin:0 0 3px 0;
@@ -1562,7 +1712,7 @@ a.toggleClass:before {
 }
 
 .list .app img {
-	width:32px;
+	width:48px;
 	height:32px;
 	margin-right:15px;
 	border:1px solid transparent;
@@ -1587,7 +1737,7 @@ a.toggleClass:before {
 }
 
 .list .app .detailContainer {
-	width:750px;
+	width:734px;
 	height:32px;
 	float:left;
 	display:block;
@@ -1598,7 +1748,7 @@ a.toggleClass:before {
 
 .list .app .detailContainer .innerContainer {
 	float:left;
-	width:510px;
+	width:494px;
 	height:32px;
 	position:relative;
 	display:inline-block;
@@ -1637,12 +1787,12 @@ a.toggleClass:before {
 }
 
 .list .app .publisher, .list .app .dateAdded {
-	width:145px;
+	width:139px;
 	margin-right:50px;
 }
 
 .list .app .language, .list .app .os {
-	width:222px;
+	width:212px;
 	margin-right:50px;
 }
 
@@ -1674,6 +1824,67 @@ a.toggleClass:before {
 /**/
 
 
+
+#screenshotNav {
+	clear:both;
+	display:block;
+	position:relative;
+	width:160px;
+	height:auto;
+	z-index:20;
+}
+
+#screenshotNav button {
+	position:absolute;
+	top:15px;
+	left:15px;
+}
+
+#screenshotNav button.on {
+	top:17px;
+}
+
+#screenshotNav button.videos {
+	left:95px;
+}
+
+#screenshotHolder {
+	clear:both;
+	margin-right:10px;
+	width:1015px;
+	height:300px;
+	padding:15px;
+	overflow-x:scroll;	
+	overflow-y:hidden;
+	background: url(img/greySpeckle.gif);
+	position:relative;
+	display:block;
+	white-space:nowrap;
+	padding:60px 0 0 0;
+}
+
+#imageArea, #videoArea {
+	display:block;
+	position:relative;
+	width:auto;
+	overflow-x:scroll;	
+	overflow-y:hidden;
+	white-space:nowrap;
+	bottom:20px;
+}
+
+#screenshotHolder img, #screenshotHolder iframe, #screenshotHolder video {
+	display: inline;
+	vertical-align: top;
+	float: none;
+	margin:0 0 0 15px;
+}
+
+#screenshotHolder img:last-child, #screenshotHolder iframe:last-child, #screenshotHolder video:last-child {
+	margin: 0 15px;
+}
+
+
 .viewInfo {
 	position:relative;
 	float:left;
@@ -1694,8 +1905,12 @@ a.toggleClass:before {
 	background-position:0px -101px;
 }
 
-.get {
+.app .greenSmlButton, .app .purpleMedButton {
 	float:right;
+}
+
+.greenSmlButton {
+	float:left;
 	font-size:14px;
 	line-height:14px;
 	color:#fff;
@@ -1707,13 +1922,26 @@ a.toggleClass:before {
 	text-shadow: 1px 1px 0px #386674;
 }
 
-.addLicense {
-	float:right;
+.purpleMedButton {
+	float:left;
 	font-size:14px;
 	line-height:14px;
 	color:#fff;
 	background: transparent url(img/buttonSprite.png) no-repeat 0px -305px;
 	width:84px;
+	height:18px;
+	margin:0;
+	padding:7px 6px;
+	text-shadow: 1px 1px 0px #386674;
+}
+
+.greenLgeButton {
+	float:left;
+	font-size:14px;
+	line-height:14px;
+	color:#fff;
+	background: transparent url(img/buttonSprite.png) no-repeat 0px -344px;
+	width:100px;
 	height:18px;
 	margin:0;
 	padding:7px 6px;
@@ -1824,6 +2052,51 @@ footer .metaNav li {
 footer .metaNav a {
 	font-size:14px;
 	color:#50a2bd;
+}
+
+ul.noBullet, ul.bulleted {
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	padding:10px 0;
+	margin:0;	
+}
+
+ul.bulleted {
+	list-style:disc;
+	padding: 5px 0 5px 20px;
+}
+
+ul.noBullet {	
+	list-style:none;
+}
+
+.noBullet li, .bulleted li {
+	width:100%;
+	margin:0;
+	clear:both;	
+	padding:5px 0;
+}
+
+.noBullet li:first-child, .bulleted li:first-child {
+	padding: 0 0 5px 0;
+}
+
+.fullWidth {
+	width:1015px;
+	height:auto;
+	clear:both;
+}
+
+.halfWidth {
+	float:left;
+	width:500px;
+	height:auto;
+	margin: 0;
+}
+
+.halfWidth:first-child {
+	margin: 0 15px 0 0;
 }
 
 .marginTop10 {

@@ -1,5 +1,20 @@
 $(document).ready(function() {	
 	
+	$('#screenshotNav .images, #screenshotNav .videos').click(function() {
+		var activeBtn, nonActiveBtn, targetEl, nonTargetEl;
+		activeBtn = $(this);
+		nonActiveBtn = $(activeBtn).siblings('button');
+		targetEl = $('#' + $(activeBtn).attr('data-target'));
+		nonTargetEl = $('#' + $(nonActiveBtn).attr('data-target'));
+		
+		if (!$(activeBtn).hasClass('on')) {
+			$(activeBtn).addClass('on');
+			$(nonActiveBtn).removeClass('on');
+			$(targetEl).show();
+			$(nonTargetEl).hide();
+		}
+	})
+	
 	$('select#filterLearningArea1,select#filterLearningArea2').change(function(){		
 		var selectedVal, jsonPath, targetEl, parentId, blnDynamic;
 		blnDynamic = false;

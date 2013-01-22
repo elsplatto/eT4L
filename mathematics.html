@@ -6,26 +6,23 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>DEC Software Catalogue - Homepage</title>
+        <title>DEC Software Catalogue - Mathematics</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/normalize.min.css" />
-        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/modal.css" media="screen" />
         <link rel="stylesheet" href="css/slider.css" media="screen" />
-		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-		
-		
     </head>
-    <body class="homepage">
+    <body class="thirdLevel">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-		
-		<header>			
+		<header>
 			<div id="alertsContainer">
 				<div id="alertsArea">
 					<ul>
@@ -81,10 +78,45 @@
 		<nav id="primaryNav">
 			<div class="navContainer">
 				<ul>
-					<li><a href="#">Key Learning Area</a></li>
+					<li class="active"><a href="#">Key Learning Area</a></li>
 					<li><a href="#">Learning Objectives</a></li>
 					<li><a href="#">Learning Activities</a></li>
 					<li><a href="#">Administration</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<nav id="secondaryNav">
+			<div class="navContainer">
+				<ul>
+					<li><a href="#">English</a></li>
+					<li><a href="#">Creative Arts</a></li>
+					<li><a href="#">Business and Economics</a></li>
+					<li class="active"><a href="#">Mathematics</a></li>
+					<li><a href="#">Physical Education, Health and Personal Development</a></li>
+					<li><a href="#">Careers</a></li>
+					<li><a href="#">Science (S4–S6)</a></li>
+					<li><a href="#">Technology and Applied Sciences</a></li>
+					<li><a href="#">Welfare</a></li>
+					<li><a href="#">Science and Technology (ES1–S3)</a></li>
+					<li><a href="#">Languages</a></li>
+					<li><a href="#">Special Education</a></li>
+					<li><a href="#">Human Society and Environment</a></li>
+					<li><a href="#">Life Skills</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<nav id="tertiaryNav">
+			<div class="navContainer">
+				<ul>
+					<li><a href="#">Numbers</a></li>
+					<li><a href="#">Data</a></li>
+					<li><a href="#">Space and Geometry</a></li>
+					<li><a href="#">Patterns and Algebra</a></li>
+					<li><a href="#">Measurement</a></li>
+					<li><a href="#">Working mathematically</a></li>
+					
 				</ul>
 			</div>
 		</nav>
@@ -106,19 +138,13 @@
 								<input type="search" id="filterSearch" autocomplete="off" />
 							</div>
 						
-							<label for="filterResourceType">Resource Type</label>
+							<label for="filterResourceType1">Resource Type</label>
 							<div class="inputHolder styledSelect">
-								<select id="filterResourceType">
+								<select id="filterResourceType1">
 									<option>Select</option>
-									<option value="Photographs">Photographs</option>
-									<option value="Games">Games</option>
-									<option value="Audio">Audio</option>
-									<option value="Video">Video</option>
-									<option value="Quizzes">Quizzes</option>
-									<option value="Questionnaires">Questionnaires</option>
-									<option value="Program of study">Program of study</option>
-									<option value="Work sheets">Work sheets</option>
-									<option value="Books sets">Books sets</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
 								</select>
 							</div>
 						
@@ -164,6 +190,16 @@
 								</select>
 							</div>
 						
+							<label for="filterResourceType2">Resource Type</label>
+							<div class="inputHolder styledSelect">
+								<select id="filterResourceType2">
+									<option>Select</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
+								</select>
+							</div>
+						
 							<label for="filterVendor">Vendor</label>
 							<div class="inputHolder styledSelect">
 								<select id="filterVendor">
@@ -173,7 +209,13 @@
 									<option value="">Option 3</option>
 								</select>
 							</div>
-							
+						
+						
+						</div>
+					
+					
+						<div class="column3">
+						
 							<label for="filterOperatingSystem">Operating System</label>
 							<div class="inputHolder styledSelect">
 								<select id="filterOperatingSystem">
@@ -184,11 +226,6 @@
 								</select>
 							</div>
 						
-						</div>
-					
-					
-						<div class="column3">						
-						
 							<div class="filterCheckboxContainer">
 								<span class="label">Only Results With</span>
 								<div class="filterCheckboxHolder">
@@ -198,50 +235,34 @@
 								</div>	
 							</div>
 						</div>
-						
-						<div class="keyline"></div>
-						
-						<div class="lastRow">
-							<span style="color:#fff;">Slider goes in here</span>
-						</div>
 					
 						<div class="lastRow">
 							<label for="filterLearningArea1">Learning Area</label>
 							<div class="inputHolder styledSelect">
-								<select id="filterLearningArea1" data-jsonPath="json/levels.json" data-target="filterLearningArea2">
+								<select id="filterLearningArea1">
 									<option>Select</option>
-									<option value="1">Key Learning Area</option>
-									<option value="2">Learning Objectives</option>
-									<option value="3">Learning Activities</option>
-									<option value="4">Administration</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
 								</select>
 							</div>
-							<label for="filterLearningArea2" class="hide">Learning Area</label>
+							<label for="filterLearningArea2">Learning Area</label>
 							<div class="inputHolder styledSelect">
-								<select id="filterLearningArea2" disabled="disabled" data-jsonPath="json/levels.json" data-target="filterLearningArea3">
+								<select id="filterLearningArea2">
 									<option>Select</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
 								</select>
 							</div>
 						
-							<label for="filterLearningArea3" class="hide">Learning Area</label>
+							<label for="filterLearningArea3">Learning Area</label>
 							<div class="inputHolder styledSelect">
-								<select id="filterLearningArea3" disabled="disabled">
+								<select id="filterLearningArea3">
 									<option>Select</option>
-								</select>
-							</div>
-							
-							<label for="stage">Stage</label>
-							<div class="inputHolder styledSelect">
-								<select id="stage">
-									<option>Select</option>
-									<option value="1">Pre-School</option>
-									<option value="2">Early Stage 1</option>
-									<option value="3">Stage 1</option>
-									<option value="4">Stage 2</option>
-									<option value="5">Stage 3</option>
-									<option value="6">Stage 4</option>
-									<option value="7">Stage 5</option>
-									<option value="8">Stage 6</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
 								</select>
 							</div>
 						
@@ -255,10 +276,10 @@
 		
 		<div id="contentContainer">
 			<div id="contentArea" class="thumbnails">
-				<div id="filterTab"><a href="#filterArea" class="toggleClass">Filter Home Page Results</a></div>
+				<div id="filterTab"><a href="#filterArea" class="toggleClass">Filter Mathematics</a></div>
 				<div id="pageTools">
 					<div id="breadcrumbs">
-						<span class="home">Home</span>
+						<span class="home"><a href="#">Home</a></span> <span><a href="#">Key Learnings</a></span> <span>Mathematics</span>
 					</div>					
 					<div id="views" class="buttonContainer">
 						<span>View</span>
@@ -286,46 +307,39 @@
 				<div class="keyline"></div>
 				
 				
-				<!--Note: Assumption is that this will be managed by a CMS so background images should probably be inserted in-line-->
-				<div id="specialFeatures">
-					<a href="#" title="Go to Explore Mars app" style="background:transparent url(img/homefeature1.jpg) no-repeat">
-						<h2>Explore Mars</h2>
-						
-						<div class="paraHolder">
-							<p>
-							Discover apps <br />
-							to explore the mars landing
-							</p>
-						</div>
-					</a>
-					<a href="#" style="background:transparent url(img/homefeature2.gif) no-repeat">
-						<h2>Welcome to the <br />
-							DEC Software Catalogue</h2>
-						
-						<div class="paraHolder">
-							<p>
-								The best way to find and manage
-								educational software, over 4000 titles
-								available and more added every day.
-							</p>
-						
-							<p>
-								Learn how to make the most of the catalogue.
-							</p>
-						</div>
-					</a>
-				</div>
+				
+				
 				
 				<div class="appContent">
 					
 					<section class="appSection">
-						<h2>News</h2>
+						<h2>Mathematics</h2>
+						
+						<div class="pagination">
+							<a href="#" class="previous" title="Previous page"></a>
+							<a href="#">1</a>
+							<span>...</span>
+							<a href="#">4</a>
+							<span class="current">5</span>
+							<a href="#">6</a>
+							<span>...</span>
+							<a href="#">10</a>
+							<a href="#" class="next" title="Next page"></a>
+						</div>
+						
+						<div id="order" class="buttonContainer">
+							<span>Order by</span>
+							<button id="orderByAlphabet">A-Z</button>
+							<button id="orderByDate" class="on">Date Added</button>
+						</div>
+						
+						
 						<div class="keyline"></div>
 						<div class="appsContainer">
-							<section class="app" data-keywords="English, Literacey">
+							<section class="app">
 								<img src="img/apps/sample-1.jpg" alt="alt text here" />
 								<div class="detailContainer">
-									<h3>Lorem ipsum dolord fds fsdss</h3>
+									<h3>Lorem ipsum dolor</h3>
 									<div class="innerContainer">
 										<div class="publisher">Publisher: <span>Lorem ipsum dsf fds dfs sfd sdfd fs fdssdf dsf fsd dfsd</span></div>
 										<div class="language">Language: <span>Dolor Lorem ipsum dsf Lorem ipsum dsfLorem ipsum dsf</span></div>
@@ -335,13 +349,13 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#previewInfo" rel="modal:open" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
 
 							
-							<section class="app" data-keywords="Mathematics, Numeracy">
+							<section class="app">
 								<div class="purchased">Purchased</div>
 								<img src="img/apps/sample-2.jpg" alt="alt text here" />
 								<div class="detailContainer">
@@ -355,7 +369,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="purpleMedButton">Add License</a>
 								</div>
 							</section>
@@ -373,7 +387,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -391,7 +405,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -409,26 +423,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
-									<a href="#" class="greenSmlButton">Get</a>
-								</div>
-							</section>
-							
-							
-							<section class="app">
-								<img src="img/apps/sample-5.jpg" alt="alt text here" />
-								<div class="detailContainer">
-									<h3>Lorem ipsum dolor</h3>
-									<div class="innerContainer">
-										<div class="publisher">Publisher: <span>Lorem ipsum</span></div>
-										<div class="language">Language: <span>Dolor</span></div>
-										<div class="dateAdded">Added: <span>07 August 2012</span></div>								
-										<div class="os">OS: <span>Windows XP SP3 &amp; UP, OSX 10 &amp; up</span></div>
-										<div class="price">From: <span>$250.00</span></div>
-									</div>
-								</div>
-								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -447,18 +442,32 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
 							
-						</div>
-					</section>
-					
-					<section class="appSection">
-						<h2>Popular</h2>
-						<div class="keyline"></div>
-						<div class="appsContainer">
+							
+							<section class="app">
+								<img src="img/apps/sample-5.jpg" alt="alt text here" />
+								<div class="detailContainer">
+									<h3>Lorem ipsum dolor</h3>
+									<div class="innerContainer">
+										<div class="publisher">Publisher: <span>Lorem ipsum</span></div>
+										<div class="language">Language: <span>Dolor</span></div>
+										<div class="dateAdded">Added: <span>07 August 2012</span></div>								
+										<div class="os">OS: <span>Windows XP SP3 &amp; UP, OSX 10 &amp; up</span></div>
+										<div class="price">From: <span>$250.00</span></div>
+									</div>
+								</div>
+								<div class="more">
+									<a href="#" class="viewInfo">View info</a>
+									<a href="#" class="greenSmlButton">Get</a>
+								</div>
+							</section>
+							
+							
+						
 							<section class="app">
 								<img src="img/apps/sample-6.jpg" alt="alt text here" />
 								<div class="detailContainer">
@@ -472,7 +481,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -491,7 +500,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -509,7 +518,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -527,7 +536,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -545,17 +554,12 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
-						</div>					
-					</section>
-					
-					<section class="appSection">
-						<h2>Recommended</h2>
-						<div class="keyline"></div>
-						<div class="appsContainer">
+							
+							
 							<section class="app">
 								<img src="img/apps/sample-11.jpg" alt="alt text here" />
 								<div class="detailContainer">
@@ -569,7 +573,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -588,7 +592,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -606,7 +610,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -624,7 +628,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -642,7 +646,7 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="viewInfo">View info</a>
 									<a href="#" class="greenSmlButton">Get</a>
 								</div>
 							</section>
@@ -661,7 +665,7 @@
 			<footer>
 				<a href="http://staff.det.nsw.edu.au" title="Go to Staff Portal" class="logo">Department of Education and Communities</a>
 				<ul class="mainNav">
-					<li><a href="key-learning.html">Key Learning Area</a></li>
+					<li><a href="#">Key Learning Area</a></li>
 					<li><a href="#">Learning Objectives</a></li>
 					<li><a href="#">Learning Activities</a></li>
 					<li><a href="#">Administration</a></li>
@@ -674,13 +678,11 @@
 			</footer>
 		</div>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
 		<script src="js/plugins/modal.js" type="text/javascript"></script>
 		<script src="js/plugins/slider.js" type="text/javascript"></script>
-		<script src="js/plugins/selectbox.js" type="text/javascript"></script>
         <script src="js/main.js"></script>
-        
 
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
