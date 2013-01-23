@@ -1,5 +1,79 @@
 $(document).ready(function() {	
 	
+	$('.styledSelect select').selectbox();
+	$('#filterLearningArea1, #filterLearningArea2, #filterLearningArea3').selectbox({
+		onChange: function (val, inst) {
+			console.log('val: ' + val)
+			console.dir(inst)
+			fetchSubCats($(this));
+		}
+	});
+	
+	$('#filterLearningArea2,#filterLearningArea3').selectbox('disable');
+	
+	function fetchSubCats(obj) {
+		var selectedVal, jsonPath, targetEl, parentId, blnDynamic, targetListSuffix, targetList;
+		blnDynamic = false;
+		parentId = parseInt('0'+$(obj).attr('data-parentId'));
+		selectedVal = parseInt('0'+$(obj).val());
+		jsonPath = $(obj).attr('data-jsonPath');
+		targetEl = $('#'+$(obj).attr('data-target'));
+		targetListSuffix = $(targetEl).attr('sb');
+		targetList = $('#sbOptions_'+targetListSuffix);
+		
+		console.log('targeList: ' + $(targetList).attr('id'));
+		$.getJSON(jsonPath, function(data) {
+			var i,j,k,selectBoxHtml, listHtml;
+			selectBoxHtml ='<option value="">Select</option>';		
+			listHtml = '<li><a href="#Select" rel="Select" class="sbFocus">Select</a></li>'	
+			for (i=0;i<data.parentCategories.length;i++)
+			{
+				if ((data.parentCategories[i]['parentId'] === selectedVal) || (data.parentCategories[i]['parentId'] === parentId)) 
+				{					
+					for (j=0;j<data.parentCategories[i].categories.length;j++)
+					{						
+						if (parentId === 0) 
+						{
+							blnDynamic = true;
+							selectBoxHtml += '<option value="'+data.parentCategories[i].categories[j].id+'">'+data.parentCategories[i].categories[j].label+'</option>';
+							listHtml += '<li><a href="#'+data.parentCategories[i].categories[j].id+'" rel="'+data.parentCategories[i].categories[j].id+'" class="">'+data.parentCategories[i].categories[j].label+'</a></li>'
+						}
+						else if ((data.parentCategories[i].categories[j].id === selectedVal) && (data.parentCategories[i].categories[j].subCategories !== undefined)) 
+						{				
+							for (k=0;k<data.parentCategories[i].categories[j].subCategories.length;k++)							
+							{
+								blnDynamic = true;
+								selectBoxHtml += '<option value="'+data.parentCategories[i].categories[j].subCategories[k].id+'">'+data.parentCategories[i].categories[j].subCategories[k].label+'</option>';
+								listHtml += '<li><a href="#'+data.parentCategories[i].categories[j].subCategories[k].id+'" rel="'+data.parentCategories[i].categories[j].subCategories[k].id+'" class="">'+data.parentCategories[i].categories[j].subCategories[k].label+'</a></li>'
+							}
+						}
+					}
+					if (blnDynamic) {
+						$(targetEl).removeAttr('disabled');
+					}
+					else
+					{
+						$(targetEl).attr('disabled','disabled');
+					}
+					$(targetEl).attr('data-parentId',selectedVal)
+					$(targetEl).html('');
+					$(targetEl).selectbox('enable');
+					$(targetEl).append(selectBoxHtml);	
+					$(targetList).html(listHtml);
+				}
+			}	
+
+
+		}).success(function() {			
+			//console.log('success');
+		}).complete(function() {
+			//console.log('complete');
+		}).error(function(textStatus, jqXHR) {
+			//console.log(textStatus)
+			//console.log('error');
+		})
+	}
+	
 	$('#screenshotNav .images, #screenshotNav .videos').click(function() {
 		var activeBtn, nonActiveBtn, targetEl, nonTargetEl;
 		activeBtn = $(this);
@@ -13,60 +87,6 @@ $(document).ready(function() {
 			$(targetEl).show();
 			$(nonTargetEl).hide();
 		}
-	})
-	
-	$('select#filterLearningArea1,select#filterLearningArea2').change(function(){		
-		var selectedVal, jsonPath, targetEl, parentId, blnDynamic;
-		blnDynamic = false;
-		parentId = parseInt('0'+$(this).attr('data-parentId'));
-		selectedVal = parseInt('0'+$(this).val());
-		jsonPath = $(this).attr('data-jsonPath');
-		targetEl = $('#'+$(this).attr('data-target'));			
-		$.getJSON(jsonPath, function(data) {
-			var i,j,k,html;
-			html ='<option value="">Select</option>';			
-			for (i=0;i<data.parentCategories.length;i++)
-			{
-				if ((data.parentCategories[i]['parentId'] === selectedVal) || (data.parentCategories[i]['parentId'] === parentId)) 
-				{					
-					for (j=0;j<data.parentCategories[i].categories.length;j++)
-					{						
-						if (parentId === 0) 
-						{
-							blnDynamic = true;
-							html += '<option value="'+data.parentCategories[i].categories[j].id+'">'+data.parentCategories[i].categories[j].label+'</option>';
-						}
-						else if ((data.parentCategories[i].categories[j].id === selectedVal) && (data.parentCategories[i].categories[j].subCategories !== undefined)) 
-						{				
-							for (k=0;k<data.parentCategories[i].categories[j].subCategories.length;k++)							
-							{
-								blnDynamic = true;
-								html += '<option value="'+data.parentCategories[i].categories[j].subCategories[k].id+'">'+data.parentCategories[i].categories[j].subCategories[k].label+'</option>';
-							}
-						}
-					}
-					if (blnDynamic) {
-						$(targetEl).removeAttr('disabled');
-					}
-					else
-					{
-						$(targetEl).attr('disabled','disabled');
-					}
-					$(targetEl).attr('data-parentId',selectedVal)
-					$(targetEl).html('');
-					$(targetEl).append(html);					
-				}
-			}	
-			
-			
-		}).success(function() {			
-			console.log('success');
-		}).complete(function() {
-			console.log('complete');
-		}).error(function(textStatus, jqXHR) {
-			console.log(textStatus)
-			console.log('error');
-		})
 	});
 	
 	$('a.viewInfo').click(function(e) {
