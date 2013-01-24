@@ -1,71 +1,115 @@
 $(document).ready(function() {	
-	
 	$('.styledSelect select').selectbox();
-	$('#filterLearningArea1, #filterLearningArea2, #filterLearningArea3').selectbox({
+	$('#filterLearningArea2').selectbox();
+	$('#filterLearningArea2').selectbox('disable');
+	$('#filterLearningArea3').selectbox();
+	$('#filterLearningArea3').selectbox('disable');
+	$('#filterLearningArea1, #filterLearningArea2').selectbox({
 		onChange: function (val, inst) {
-			console.log('val: ' + val)
-			console.dir(inst)
-			fetchSubCats($(this));
+			fetchSubCats($(this));			
 		}
 	});
 	
-	$('#filterLearningArea2,#filterLearningArea3').selectbox('disable');
-	
 	function fetchSubCats(obj) {
-		var selectedVal, jsonPath, targetEl, parentId, blnDynamic, targetListSuffix, targetList;
+		var selectedVal, jsonPath, targetEl, parentId, blnDynamic, targetListSuffix, targetList, targetGrandChildEl, targetGrandChildId, blnHasGrandChild;
+		var targetGrandChildListSuffix, targetGrandChildList;
 		blnDynamic = false;
+		blnHasGrandChild = false;
 		parentId = parseInt('0'+$(obj).attr('data-parentId'));
 		selectedVal = parseInt('0'+$(obj).val());
 		jsonPath = $(obj).attr('data-jsonPath');
 		targetEl = $('#'+$(obj).attr('data-target'));
 		targetListSuffix = $(targetEl).attr('sb');
 		targetList = $('#sbOptions_'+targetListSuffix);
+		targetGrandChildId = $(targetEl).attr('data-target');
+		targetGrandChildEl = $('#'+targetGrandChildId);
 		
-		console.log('targeList: ' + $(targetList).attr('id'));
+		$(obj).children('option:selected').removeAttr('selected');
+		
+		if (typeof targetGrandChildId !== undefined && typeof targetGrandChildId === 'string') {
+			blnHasGrandChild = true;
+			targetGrandChildListSuffix = $(targetGrandChildEl).attr('sb');
+			targetGrandChildList = $('#sbOptions_'+targetGrandChildListSuffix);
+		}
+		
 		$.getJSON(jsonPath, function(data) {
 			var i,j,k,selectBoxHtml, listHtml;
 			selectBoxHtml ='<option value="">Select</option>';		
-			listHtml = '<li><a href="#Select" rel="Select" class="sbFocus">Select</a></li>'	
-			for (i=0;i<data.parentCategories.length;i++)
+			listHtml = '<li><a href="#Select" rel="Select" class="sbFocus">Select</a></li>';
+			if (selectedVal > 0)
 			{
-				if ((data.parentCategories[i]['parentId'] === selectedVal) || (data.parentCategories[i]['parentId'] === parentId)) 
-				{					
-					for (j=0;j<data.parentCategories[i].categories.length;j++)
-					{						
-						if (parentId === 0) 
-						{
-							blnDynamic = true;
-							selectBoxHtml += '<option value="'+data.parentCategories[i].categories[j].id+'">'+data.parentCategories[i].categories[j].label+'</option>';
-							listHtml += '<li><a href="#'+data.parentCategories[i].categories[j].id+'" rel="'+data.parentCategories[i].categories[j].id+'" class="">'+data.parentCategories[i].categories[j].label+'</a></li>'
-						}
-						else if ((data.parentCategories[i].categories[j].id === selectedVal) && (data.parentCategories[i].categories[j].subCategories !== undefined)) 
-						{				
-							for (k=0;k<data.parentCategories[i].categories[j].subCategories.length;k++)							
+				for (i=0;i<data.parentCategories.length;i++)
+				{
+					if ((data.parentCategories[i]['parentId'] === selectedVal) || (data.parentCategories[i]['parentId'] === parentId)) 
+					{	
+						for (j=0;j<data.parentCategories[i].categories.length;j++)
+						{						
+							if ((data.parentCategories[i].categories.length > 0) && (data.parentCategories[i]['parentId'] === selectedVal))
 							{
 								blnDynamic = true;
-								selectBoxHtml += '<option value="'+data.parentCategories[i].categories[j].subCategories[k].id+'">'+data.parentCategories[i].categories[j].subCategories[k].label+'</option>';
-								listHtml += '<li><a href="#'+data.parentCategories[i].categories[j].subCategories[k].id+'" rel="'+data.parentCategories[i].categories[j].subCategories[k].id+'" class="">'+data.parentCategories[i].categories[j].subCategories[k].label+'</a></li>'
+								selectBoxHtml += '<option value="'+data.parentCategories[i].categories[j].id+'">'+data.parentCategories[i].categories[j].label+'</option>';
+								listHtml += '<li><a href="#'+data.parentCategories[i].categories[j].id+'" rel="'+data.parentCategories[i].categories[j].id+'" class="">'+data.parentCategories[i].categories[j].label+'</a></li>'
 							}
-						}
+							else if ((data.parentCategories[i].categories[j].id === selectedVal) && (data.parentCategories[i].categories[j].subCategories !== undefined)) 
+							{							
+								for (k=0;k<data.parentCategories[i].categories[j].subCategories.length;k++)							
+								{
+									blnDynamic = true;
+									selectBoxHtml += '<option value="'+data.parentCategories[i].categories[j].subCategories[k].id+'">'+data.parentCategories[i].categories[j].subCategories[k].label+'</option>';
+									listHtml += '<li><a href="#'+data.parentCategories[i].categories[j].subCategories[k].id+'" rel="'+data.parentCategories[i].categories[j].subCategories[k].id+'" class="">'+data.parentCategories[i].categories[j].subCategories[k].label+'</a></li>'
+								}
+							}
+						}					
 					}
-					if (blnDynamic) {
-						$(targetEl).removeAttr('disabled');
-					}
-					else
-					{
-						$(targetEl).attr('disabled','disabled');
-					}
-					$(targetEl).attr('data-parentId',selectedVal)
-					$(targetEl).html('');
-					$(targetEl).selectbox('enable');
-					$(targetEl).append(selectBoxHtml);	
-					$(targetList).html(listHtml);
 				}
-			}	
+			}			
+			
+			if (blnDynamic) {
+				//has chidren to add to dropdown
+				$(targetEl).removeAttr('disabled');
+				$(targetEl).attr('data-parentId',selectedVal)
+				$(targetEl).html('');
 
-
+				$(targetEl).selectbox('detach'); //detach selecbox plugin
+				$(targetEl).append(selectBoxHtml);//add new options
+				$(targetList).html(listHtml);
+				$(targetEl).selectbox({
+					onChange: function (val, inst) {
+						fetchSubCats($(this));
+					}
+				});
+				if (blnHasGrandChild)
+				{
+					//reset grandchild
+					$(targetGrandChildEl).append(selectBoxHtml);
+					$(targetGrandChildEl).html('');	
+					$(targetGrandChildEl).html(listHtml);
+					$(targetGrandChildEl).attr('disabled','disabled');
+					$(targetGrandChildEl).selectbox('disable');
+				}
+			}
+			else
+			{
+				//reset child
+				$(targetEl).attr('disabled','disabled');
+				$(targetEl).selectbox('disable');
+				$(targetEl).append(selectBoxHtml);	
+				$(targetList).html(listHtml);
+				$('#sbSelector_'+targetListSuffix).text('Select');
+				if (blnHasGrandChild)
+				{
+					//reset grandchild
+					$(targetGrandChildEl).append(selectBoxHtml);
+					$(targetGrandChildList).html(listHtml);
+					$('#sbSelector_'+targetGrandChildListSuffix).text('Select');
+					$(targetGrandChildEl).html('');	
+					$(targetGrandChildEl).html(listHtml);
+					$(targetGrandChildEl).attr('disabled','disabled');
+					$(targetGrandChildEl).selectbox('disable');
+				}
+			}
 		}).success(function() {			
-			//console.log('success');
+				
 		}).complete(function() {
 			//console.log('complete');
 		}).error(function(textStatus, jqXHR) {

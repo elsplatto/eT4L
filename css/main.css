@@ -296,7 +296,7 @@ header a {
 
 #filterArea .filterCheckboxContainer {
 	clear:both;
-	padding:32px 0 0 0;
+	padding:0;
 	width:100%;
 	height:auto;
 	overflow:hidden;
@@ -326,6 +326,13 @@ header a {
 
 #filterArea .lastRow label {
 	display:inline-block;
+}
+
+#filterArea .lastRow  label.stage {
+	display:inline-block;
+	width:50px;
+	clear:none;
+	margin: 0 0 0 10px;
 }
 
 #filterArea .lastRow .inputHolder {
@@ -369,20 +376,14 @@ header a {
 	-webkit-appearance:none;
 	z-index:0;
 	outline:none;
+	background-color: #2d2d2d;
+	border: solid 1px #515151;
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
+/*Filter selectbox styling*/
 
 .sbHolder{
 	background-color: #2d2d2d;
@@ -394,6 +395,20 @@ header a {
 	position: relative;
 	width: 200px;;
 }
+
+#filterArea #stageHolder.inputHolder {
+	width:180px;
+	margin:0;
+}
+
+#stageHolder .sbHolder{
+	width: 180px;
+}
+
+#stageHolder .sbSelector{
+	width: 150px;
+}
+
 .sbHolder:focus .sbSelector{
 	
 }
@@ -409,8 +424,19 @@ header a {
 	top: 0;
 	width: 170px;
 }
-.sbSelector:link, .sbSelector:visited, .sbSelector:hover{
-	color: #EBB52D;
+
+.sbHolderDisabled .sbSelector:link, .sbHolderDisabled .sbSelector:visited, .sbHolderDisabled .sbSelector:hover {
+	color:#4d4d4d;
+	cursor:default;
+}
+
+.sbHolderDisabled .sbToggle:link, .sbHolderDisabled .sbToggle:visited, .sbHolderDisabled .sbToggle:hover {
+	background: url(img/select-icons.png) 0 -116px no-repeat;
+	cursor:default;
+}
+
+.sbSelector:link, .sbSelector:visited, .sbSelector:hover {
+	color: #fff;
 	outline: none;
 	text-decoration: none;
 }
@@ -436,6 +462,7 @@ header a {
 .sbHolderDisabled{
 	background-color: #3C3C3C;
 	border: solid 1px #515151;
+	color:#333;
 }
 .sbHolderDisabled .sbHolder{
 	
@@ -480,10 +507,12 @@ header a {
 }
 .sbOptions .sbDisabled{
 	border-bottom: dotted 1px #515151;
-	color: #999;
+	color: #333;
 	display: block;
 	padding: 7px 0 7px 3px;
 }
+
+
 .sbOptions .sbGroup{
 	border-bottom: dotted 1px #515151;
 	color: #EBB52D;

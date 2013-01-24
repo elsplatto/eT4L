@@ -58,6 +58,9 @@
 		 * @return {Boolean}
 		 */
 		_isDisabledSelectbox: function (target) {
+			
+				console.log('target: ' + target)
+				
 			if (!target) {
 				return FALSE;
 			}

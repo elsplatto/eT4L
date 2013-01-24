@@ -77,7 +77,8 @@
 				</div>
 			</div>			
 		</header>
-
+		
+		<!--Start primary nav-->
 		<nav id="primaryNav">
 			<div class="navContainer">
 				<ul>
@@ -87,8 +88,11 @@
 					<li><a href="#">Administration</a></li>
 				</ul>
 			</div>
-		</nav>
+		</nav>		
+		<!--End primary nav-->
 		
+		
+		<!--Start Filter-->
 		<div id="filterContainer">
 			<div id="filterArea">
 				<form action="filter" method="GET">
@@ -217,7 +221,7 @@
 								</select>
 							</div>
 							<label for="filterLearningArea2" class="hide">Learning Area</label>
-							<div class="inputHolder">
+							<div class="inputHolder" id="learningHolder2">
 								<select id="filterLearningArea2" disabled="disabled" data-jsonPath="json/levels.json" data-target="filterLearningArea3">
 									<option>Select</option>
 								</select>
@@ -230,8 +234,8 @@
 								</select>
 							</div>
 							
-							<label for="stage">Stage</label>
-							<div class="inputHolder styledSelect">
+							<label for="stage" class="stage">Stage</label>
+							<div class="inputHolder styledSelect" id="stageHolder">
 								<select id="stage">
 									<option>Select</option>
 									<option value="1">Pre-School</option>
@@ -252,6 +256,8 @@
 				</form>
 			</div>			
 		</div>
+		<!--End Filter-->
+		
 		
 		<div id="contentContainer">
 			<div id="contentArea" class="thumbnails">
