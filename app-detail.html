@@ -12,8 +12,10 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/modal.css" media="screen" />
+        
         <link rel="stylesheet" href="css/slider.css" media="screen" />
+        <link rel="stylesheet" href="css/qtip.css" media="screen" />
+		<link rel="stylesheet" href="css/jquery-ui.css" />
 		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
@@ -97,7 +99,10 @@
 					<section class="appSection">
 						<a href="#" class="bigLeftLink">Back</a>
 						<div class="keyline"></div>
-						<h2>Lorem Ipsum v2.1</h2>
+						<div class="headingBar">
+							<h2>Lorem Ipsum v2.1</h2>
+							<h4 class="greenTick floatRight">You have a license for this app</h4>	
+						</div>
 						<div class="keyline"></div>
 						<div class="appsContainer">
 							
@@ -125,7 +130,7 @@
 										</tr>
 									</table>
 								
-									<h3>Licences available:</h3><div class="green">5</div>
+									<h3>Licences available:</h3><a href="#" id="licenseHelp" class="green">?</a>
 								
 									<table cellpadding="0" cellspacing="0" border="0">
 										<tr>
@@ -140,14 +145,14 @@
 								
 									<div class="boxLeft purpleStripe">
 									If you don’t yet have a license you can purchase one using the ‘Get License’ button:
-									<a href="#" class="purpleMedButton">Get License</a>
+									<a href="#" class="purpleButton">Get License</a>
 									</div>
 								
 									<span class="largeGrey">or</span>
 								
 									<div class="boxRight greenStripe">
 									If you already have a license click the ‘Get Software’ button to enter your license and get your software:	
-									<a href="#" class="greenLgeButton">Get Software</a>
+									<a href="#" class="greenButton">Get Software</a>
 									</div>
 								
 								</div>
@@ -230,8 +235,8 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="#previewInfo" rel="modal:open" class="viewInfo">View info</a>
-									<a href="#" class="greenSmlButton">Get</a>
+									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="greenButton">Get</a>
 								</div>
 							</section>
 
@@ -250,8 +255,8 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="#previewInfo" rel="modal:open" class="viewInfo">View info</a>
-									<a href="#" class="purpleMedButton">Add License</a>
+									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="purpleButton">Add License</a>
 								</div>
 							</section>
 							
@@ -268,8 +273,8 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="#previewInfo" rel="modal:open" class="viewInfo">View info</a>
-									<a href="#" class="greenSmlButton">Get</a>
+									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="greenButton">Get</a>
 								</div>
 							</section>
 							
@@ -286,8 +291,8 @@
 									</div>
 								</div>
 								<div class="more">
-									<a href="#previewInfo" rel="modal:open" class="viewInfo">View info</a>
-									<a href="#" class="greenSmlButton">Get</a>
+									<a href="preview/index.html" class="viewInfo">View info</a>
+									<a href="#" class="greenButton">Get</a>
 								</div>
 							</section>
 						</div>
@@ -323,7 +328,10 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
 		<script src="js/plugins/modal.js" type="text/javascript"></script>
-		<script src="js/plugins/slider.js" type="text/javascript"></script>
+		<script src="js/plugins/sliderGallery.js" type="text/javascript"></script>
+		<script src="js/plugins/selectbox.js" type="text/javascript"></script>
+		<script src="js/plugins/qtip.js" type="text/javascript"></script>
+		<script src="js/plugins/jquery-ui-custom.min.js" type="text/javascript"></script>
         <script src="js/main.js"></script>
 
         <script>

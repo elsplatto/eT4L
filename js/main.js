@@ -1,5 +1,238 @@
-$(document).ready(function() {	
-	$('.styledSelect select').selectbox();
+$(document).ready(function() {
+	
+	$('#add').live('change',function(){
+		var increaseNum, i, lastChildHolder, counter, newCount, newSet, oldString, newString;		
+		increaseNum = $(this).val();	
+		for (i=0;i<increaseNum;i++)
+		{		
+			lastChildHolder = $('.formModal #licenseInputs div.holder:last-child');
+			counter = parseInt($(lastChildHolder).attr('data-count'));
+			newCount = counter+1;
+			oldString = '-'+counter;
+			newString = '-'+(newCount);		
+			newSet = lastChildHolder.clone();	//get a copy of the last div
+			$(newSet).attr('data-count',(newCount)); //get the counter
+			
+			$(newSet).find('div.sbHolder').remove();
+			
+			
+			//change the id and for attributes
+			$(newSet).find('label, input, select').each(function(i) {
+				var attrString, tagName;
+				tagName = $(this).get(0).tagName;
+			
+				if (tagName.toLowerCase() === 'input' || tagName.toLowerCase() === 'select')
+				{
+					attrString = $(this).attr('id');
+					attrString = attrString.replace(oldString,newString)
+					$(this).attr('id',attrString);
+					if (tagName.toLowerCase() === 'select')
+					{
+						//reset selectbox
+						$(this).children('option:selected').removeAttr('selected');
+					}
+					else
+					{
+						//reset input field
+						$(this).val('');
+					}
+				}
+				else if (tagName.toLowerCase() === 'label')
+				{
+					attrString = $(this).attr('for');
+					attrString = attrString.replace(oldString,newString)
+					$(this).attr('for',attrString);
+				}
+				$('#licenseInputs').append(newSet);
+				//style selectbox element
+				$(newSet).find('select').selectbox();
+				//reselt styled selectbox element
+				$(newSet).find('.sbSelector').text('1');
+				
+			});				
+		}		
+	});
+	
+	$('a.addLicense').each(function(i) {
+		$(this).qtip(
+		{
+			style: {
+				classes: 'formModal'
+			},
+			content: {
+				text: '<img class="throbber" src="img/loading.gif" alt="Loading..." /><span>Loading...</span>',
+				title: {
+					button: 'Close'
+				},
+				ajax: {
+					type: 'GET',
+					url: $(this).attr('href'),
+					success: function(data, status) {
+						// Process the data
+						//console.log('here')
+						// Set the content manually (required!)
+						this.set('content.text', data);
+						$('a.cancel').click(function(e){
+							e.preventDefault();
+							$('.qtip-close').trigger('click');
+						});
+						$('.licenseCodeHolder select').selectbox();
+					}
+				}
+			},
+			position: {
+				my: 'center', // ...at the center of the viewport
+				at: 'center',
+				target: $(window)
+			},
+			show: {
+				event: 'click', // Show it on click...
+				solo: true, // ...and hide all other tooltips...
+				modal: true // ...and make it modal
+			},
+			hide: false
+		});
+	}).click(function(event) 
+		{ 
+			event.preventDefault(); 
+		});;
+
+	
+	$('a.viewInfo').each(function(i)
+	{
+		var triggerElTop, triggerElLeft, targetElLeft, finalOffset
+		triggerElLeft = $(this).offset().left - 120;
+		triggerElTop = $(this).offset().top + 15;
+		targetElLeft = $('#contentArea').offset().left + 10;
+		
+		// We make use of the .each() loop to gain access to each element via the "this" keyword...
+		$(this).qtip(
+		{
+			show: {
+				event: 'click'
+			},
+			hide: {
+				event: 'unfocus'
+			},
+			style: {
+				width: '1000px',
+				tip: {
+					width: 20,
+					height:40,
+					offset: triggerElLeft
+				}
+			},
+			position: {
+				viewport: $(window),
+				target: [targetElLeft,triggerElTop],
+				adjust: {x:triggerElLeft}
+			},
+			content: {
+				// Set the text to an image HTML string with the correct src URL to the loading image you want to use
+				text: '<img class="throbber" src="img/loading.gif" alt="Loading..." />',
+				title: {
+					button: 'Close'
+				},
+				ajax: {
+					type: 'GET',
+					url: $(this).attr('href'),
+					once:false,
+					success: function(data, status) {
+						// Process the data
+						//console.log('here')
+						// Set the content manually (required!)
+						this.set('content.text', data);
+						$('.previewGallery').nivoSlider({
+							effect: 'slideInLeft',
+							pauseTime: 6000,
+							startSlide: 0
+						});
+					}
+				}
+			}
+		})
+	}).click(function(event) 
+		{ 
+			event.preventDefault(); 
+		});
+
+	
+	if ($('#licenseHelp').length > 0)
+	{	
+		$('#licenseHelp').qtip({
+			content: {
+				text: 'You can find and download software through DEC but need to buy the license directly from the publisher.<hr/><a href="#">Read the license help.</a>'
+			},
+			position: {
+					my: 'top center',  // Position my top left...
+					at: 'bottom center' // at the bottom right
+			},
+			hide: {
+				event: 'unfocus'
+			},
+			style: {
+				width: '300px',
+				classes: 'license-tip',
+				tip: {
+					width: 26,
+					height:13
+				}
+			}
+		});
+	}
+	
+	$('#filterArea input[type="reset"]').click(function(){
+		$('a.sbSelector').text('Select');
+		$('#priceSlider').slider('values',[0,1000]);
+		$('#filterLearningArea2').selectbox('disable');
+		$('#filterLearningArea3').selectbox('disable');
+	});
+	
+	$('#priceSlider').slider({
+		range: true,
+		min: 0,
+		max: 1000,
+		values: [ 100, 800 ],
+		slide: function( event, ui ) {
+			$('#amount-1').val( ui.values[ 0 ]);
+			$('#amount-2').val(ui.values[ 1 ] );
+		}
+	});	
+	
+	$('#amount-1').val(100);
+	$('#amount-2').val(800);
+	
+	
+	$('#amount-1, #amount-2').keyup(function(){
+		 $("#priceSlider").slider("option" , "values", [$('#amount-1').val(),$('#amount-2').val()])
+	});
+	
+	$('.styledSelect select').selectbox({
+		onChange: function(val, inst) {
+			console.log('val: ' + val);
+			$('section.app').each(function(i){
+				console.log(i);
+				var dataKeywords = $(this).attr('data-keywords');
+				if (dataKeywords !== undefined)
+				{
+					console.log('keywords: '+dataKeywords);
+					console.log('val: '+val);
+					console.log('index:'+dataKeywords.toLowerCase().indexOf(val.toLowerCase()));
+					if (dataKeywords.toLowerCase().indexOf(val.toLowerCase()) > -1) {
+						$(this).show();
+					}
+					else
+					{
+						$(this).hide();
+					}
+				}
+				else
+				{
+					$(this).hide();
+				}
+			});
+		}
+	});
 	$('#filterLearningArea2').selectbox();
 	$('#filterLearningArea2').selectbox('disable');
 	$('#filterLearningArea3').selectbox();
@@ -133,20 +366,8 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('a.viewInfo').click(function(e) {
-		e.preventDefault();
-		
-		$.get(this.href, function(html) {
-		    $(html).prependTo('body').modal();
-		  }).success(function() {
-			$('#previewGallery').nivoSlider({
-				effect: 'slideInLeft',
-				pauseTime: 6000,
-				startSlide: 0
-			});
-		});
-		
-	});
+	
+	
 	
 	if ($('#primaryNav ul li.active').length) {
 		$('#primaryNav ul').prepend('<li class="bg"></li>');
