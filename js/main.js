@@ -1,5 +1,32 @@
 $(document).ready(function() {
 	
+	if ($('#versionNotes li').length > 4) {
+		$('#versionNotes li:gt(4)').hide();
+		$('#showMoreHolder').show();
+		$('#showMoreHolder a').click(function(e){
+			e.preventDefault();
+			if ($(this).hasClass('active')) {
+				$(this).removeClass('active');
+				$('#versionNotes li:gt(4)').slideUp('slow');
+				$(this).text('Show more');
+			}
+			else
+			{
+				$(this).addClass('active');
+				$('#versionNotes li:gt(4)').slideDown('slow');
+				$(this).text('Show less');
+			}
+		});	
+	}
+	
+	$('.app a.remove').click(function(e) {
+		e.preventDefault();
+		//ajax removal from database can go here
+		//place element removal functionon succes callback
+		$(this).closest('section.app').remove();
+	});
+	
+	
 	$('#add').live('change',function(){
 		var increaseNum, i, lastChildHolder, counter, newCount, newSet, oldString, newString;		
 		increaseNum = $(this).val();	

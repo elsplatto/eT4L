@@ -328,19 +328,12 @@ header a {
 	color:#4d4d4d;
 }
 
-#filterArea .column1, 
-#filterArea .column2, 
-#filterArea .column3 {
+#filterArea .column1, #filterArea .column2, #filterArea .column3 {
 	position:relative;
 	float:left;
 	width:320px;
 	height:auto;
 	padding: 0 0 0 15px;
-	outline:1px solid red;
-}
-
-#filterArea .column3 {
-	
 }
 
 #filterArea .filterCheckboxContainer {
@@ -386,7 +379,7 @@ header a {
 
 #filterArea .fullRow .inputHolder {
 	float:left;
-	margin:0 10px 0 0;
+	margin:0 30px 0 0;
 }
 
 #filterArea .fullRow .rightHolder {
@@ -2498,6 +2491,46 @@ ul.noBullet {
 	padding: 0 0 5px 0;
 }
 
+.greyLine {
+	position:relative;
+	display:block;
+	width:100%;
+	height:auto;
+	background: transparent url(img/greyWhiteBg.gif) repeat-x center;
+}
+
+.greyLine a.btn {
+	position:relative;
+	padding:3px 15px 3px 25px;
+	border:1px solid #c2c2c3;
+	border-radius:5px;
+}
+
+.greyLine a.btn.active:before {	
+	top:6px;
+	background-position:-48px 0px;
+}
+
+.greyLine a.btn:before {
+	content: '';
+	position:absolute;
+	top:8px;
+	left:5px;
+	width:14px;
+	height:10px;
+	z-index: 0;
+	background-image: url(img/sprite-1.png);
+	background-position:-48px -13px;
+}
+
+.centered {
+	text-align:center;
+}
+
+.greySpeckledBg {
+	background: transparent url(img/contentContainerBg.gif);
+}
+
 .fullWidth {
 	width:1015px;
 	height:auto;
@@ -2547,7 +2580,6 @@ ul.noBullet {
 .marginBottom40 {
 	margin-bottom:40px !important;
 }
-
 
 /* Webkit Hacks  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {	
