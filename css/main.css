@@ -17,7 +17,7 @@ html {
 body {
     font-size: 1em;
     line-height: 1.4;
-	font-family: 'Varela Round';
+	font-family: 'Varela Round', Helvetica, Arial, sans-serif;
 }
 
 ::-moz-selection {
@@ -328,12 +328,28 @@ header a {
 	color:#4d4d4d;
 }
 
-#filterArea .column1, #filterArea .column2, #filterArea .column3 {
+#filterArea .column1, 
+#filterArea .column2, 
+#filterArea .column3 {
 	position:relative;
 	float:left;
-	width:320px;
 	height:auto;
 	padding: 0 0 0 15px;
+	min-height:22px;
+}
+
+#filterArea .column1 {
+	clear:left;
+	width:320px;
+}
+
+#filterArea .column2 {	
+	width:364px;
+}
+
+#filterArea .column3 {	
+	width:286px;
+	
 }
 
 #filterArea .filterCheckboxContainer {
@@ -341,25 +357,26 @@ header a {
 	padding:0;
 	width:100%;
 	height:auto;
-	overflow:hidden;
+	position:relative;
 }
 
 #filterArea .filterCheckboxHolder {	
 	width:195px;
 	height:auto;
-	overflow:hidden;
 	float:right;
 	padding:4px 0 0 0;
 	margin:0;
+	position:absolute;
+	right: -16px;
 }
 #filterArea .fullRow {
 	position:relative;
 	clear:both;
 	width:1000px;
-	height:50px;
+	height:30px;
 	margin:0;
 	padding: 7px 0 0 15px;
-	/*overflow:hidden;*/
+	display:block;
 }
 
 #filterArea .fullRow label.hide {
@@ -368,27 +385,38 @@ header a {
 
 #filterArea .fullRow label {
 	display:inline-block;
+	margin-right:2px;
 }
 
-#filterArea .fullRow  label.stage {
+#filterArea .column3 label[for='filterOperatingSystem'], #filterArea .column3 .filterCheckboxContainer span.label {
+	position:absolute;
+	left:2px;
+}
+
+#filterArea .column3 .filterCheckboxContainer span.label {
+	position:absolute;
+	left:-10px;
+}
+
+/*#filterArea .fullRow  label.stage {
 	display:inline-block;
 	width:50px;
 	clear:none;
 	margin: 0 0 0 10px;
-}
+}*/
 
 #filterArea .fullRow .inputHolder {
 	float:left;
-	margin:0 30px 0 0;
+	margin:0 10px 0 0;
 }
 
-#filterArea .fullRow .rightHolder {
-	float:right;
-	margin:0;
+
+#filterArea .fullRow .amounts {
+	float:left;
+	margin:0 0 0 3px;
 	position:relative;
 	width:200px;
-	height:22px;	
-	float:right;
+	height:22px;
 }
 
 #filterArea .inputHolder {
@@ -401,6 +429,11 @@ header a {
 	float:right;
 }
 
+#filterArea .column3 .inputHolder {
+	margin: 0 0 10px 0;
+	
+}
+
 #filterArea label, #filterArea span.label {
 	position:relative;
 	float:left;
@@ -409,6 +442,10 @@ header a {
 	padding:5px 0 15px 0;
 	clear:left;
 	width:123px;
+}
+
+#filterArea .column2 label {
+	padding: 5px 0 15px 30px;
 }
 
 
@@ -420,7 +457,7 @@ header a {
 
 .sbHolder{
 	background-color: transparent;
-	font-family: 'Varela Round', Arial, sans-serif;
+	font-family: 'Varela Round', Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	font-weight: normal;
 	height: 22px;
@@ -670,7 +707,7 @@ header a {
 
 
 #filterArea #priceSliderHolder {
-	width:642px;
+	width:560px;
 	height:auto;
 	margin: 10px 0;
 	padding:0;
@@ -748,7 +785,7 @@ header a {
 		left top,
 		color-stop(0.23, #B7D2D8),
 		color-stop(0.87, #FFFFFF)
-	);
+	) repeat-x;
 }
 
 #headerMain {
