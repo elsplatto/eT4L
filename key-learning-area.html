@@ -120,11 +120,116 @@
 						<a href="#">Close Filters</a>
 					</div>
 					<div class="keyline"></div>
+					
+					
+					
+					
 					<div class="filterInputArea">
-						<div class="column1 marginBottom10">
+					
+						<div class="column1">
 							<label for="filterSearch">Search</label>
 							<div class="inputHolder">
 								<input type="search" id="filterSearch" autocomplete="off" />
+							</div>
+						</div>
+						
+						<div class="column2">							
+						</div>
+						
+						<div class="column3">
+							<label for="filterOperatingSystem">Operating System</label>
+							<div class="inputHolder styledSelect">
+								<select id="filterOperatingSystem">
+									<option>Select</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
+								</select>
+							</div>
+						</div>
+					
+						<div id="learningAreaHolder" class="fullRow">
+							<label for="filterLearningArea1">Learning Area</label>
+							<div class="inputHolder">
+								<select id="filterLearningArea1" data-jsonPath="json/levels.json" data-target="filterLearningArea2">
+									<option>Select</option>
+									<option value="1">Key Learning Area</option>
+									<option value="2">Learning Objectives</option>
+									<option value="3">Learning Activities</option>
+									<option value="4">Administration</option>
+								</select>
+							</div>
+							<label for="filterLearningArea2" class="hide">Learning Area</label>
+							<div class="inputHolder" id="learningHolder2">
+								<select id="filterLearningArea2" disabled="disabled" data-jsonPath="json/levels.json" data-target="filterLearningArea3">
+									<option>Select</option>
+								</select>
+							</div>
+					
+							<label for="filterLearningArea3" class="hide">Learning Area</label>
+							<div class="inputHolder">
+								<select id="filterLearningArea3" disabled="disabled">
+									<option>Select</option>
+								</select>
+							</div>
+						
+							<input type="submit" value="Filter" />
+						</div>
+					
+					
+					
+					
+					
+					
+					
+						<div class="column1 marginBottom10">
+							
+							<label for="filter21Focus">21<sup>st</sup> Century Focus</label>
+							<div class="inputHolder styledSelect">
+								<select id="filter21Focus">
+									<option>Select</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
+								</select>
+							</div>
+							
+							<label for="filterLearningActivity">Learning Activity</label>
+							<div class="inputHolder styledSelect">
+								<select id="filterLearningActivity">
+									<option>Select</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
+								</select>
+							</div>
+							
+							<label for="filterAdministration">Administration</label>
+							<div class="inputHolder styledSelect">
+								<select id="filterAdministration">
+									<option>Select</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+									<option value="">Option 3</option>
+								</select>
+							</div>														
+						</div>
+						
+						<div class="column2">
+							
+							<label for="filterStage">Key Stage</label>
+							<div class="inputHolder styledSelect">
+								<select id="filterStage">
+									<option>Select</option>
+									<option value="1">Pre-School</option>
+									<option value="2">Early Stage 1</option>
+									<option value="3">Stage 1</option>
+									<option value="4">Stage 2</option>
+									<option value="5">Stage 3</option>
+									<option value="6">Stage 4</option>
+									<option value="7">Stage 5</option>
+									<option value="8">Stage 6</option>
+								</select>
 							</div>
 						
 							<label for="filterResourceType">Resource Type</label>
@@ -143,61 +248,9 @@
 								</select>
 							</div>
 						
-							<label for="filterLearningObjective">Learning Objective</label>
-							<div class="inputHolder styledSelect">
-								<select id="filterLearningObjective">
-									<option>Select</option>
-									<option value="">Option 1</option>
-									<option value="">Option 2</option>
-									<option value="">Option 3</option>
-								</select>
-							</div>
-
-							<label for="filterStage">Stage</label>
-							<div class="inputHolder styledSelect">
-								<select id="filterStage">
-									<option>Select</option>
-									<option value="">Option 1</option>
-									<option value="">Option 2</option>
-									<option value="">Option 3</option>
-								</select>
-							</div>
-						</div>
-						<div class="column2">
-						
-							<label for="filterLearningActivity">Learning Activity</label>
-							<div class="inputHolder styledSelect">
-								<select id="filterLearningActivity">
-									<option>Select</option>
-									<option value="">Option 1</option>
-									<option value="">Option 2</option>
-									<option value="">Option 3</option>
-								</select>
-							</div>
-						
-							<label for="filterAdministration">Administration</label>
-							<div class="inputHolder styledSelect">
-								<select id="filterAdministration">
-									<option>Select</option>
-									<option value="">Option 1</option>
-									<option value="">Option 2</option>
-									<option value="">Option 3</option>
-								</select>
-							</div>
-						
-							<label for="filterVendor">Vendor</label>
+							<label for="filterVendor">Software Vendor</label>
 							<div class="inputHolder styledSelect">
 								<select id="filterVendor">
-									<option>Select</option>
-									<option value="">Option 1</option>
-									<option value="">Option 2</option>
-									<option value="">Option 3</option>
-								</select>
-							</div>
-							
-							<label for="filterOperatingSystem">Operating System</label>
-							<div class="inputHolder styledSelect">
-								<select id="filterOperatingSystem">
 									<option>Select</option>
 									<option value="">Option 1</option>
 									<option value="">Option 2</option>
@@ -220,63 +273,20 @@
 							</div>
 						</div>
 						
-						<div class="keyline marginBottom10"></div>
 						
-						
-						
-						<div class="fullRow">							
-							<label for="amount">Price range</label>
-							<div id="priceSliderHolder">							
-								<div id="priceSlider"></div>
+						<div id="priceRangeSection">
+							<div class="keyline marginBottom10"></div>						
+							<div class="fullRow">							
+								<label for="amount">Price range</label>
+								<div id="priceSliderHolder">							
+									<div id="priceSlider"></div>
+								</div>
+								<div class="amounts">
+									<input type="text" id="amount-1" />
+									<input type="text" id="amount-2" />
+								</div>
 							</div>
-							<div class="rightHolder">
-								<input type="text" id="amount" />
-							</div>
-						</div>
-					
-						<div class="fullRow">
-							<label for="filterLearningArea1">Learning Area</label>
-							<div class="inputHolder">
-								<select id="filterLearningArea1" data-jsonPath="json/levels.json" data-target="filterLearningArea2">
-									<option>Select</option>
-									<option value="1">Key Learning Area</option>
-									<option value="2">Learning Objectives</option>
-									<option value="3">Learning Activities</option>
-									<option value="4">Administration</option>
-								</select>
-							</div>
-							<label for="filterLearningArea2" class="hide">Learning Area</label>
-							<div class="inputHolder" id="learningHolder2">
-								<select id="filterLearningArea2" disabled="disabled" data-jsonPath="json/levels.json" data-target="filterLearningArea3">
-									<option>Select</option>
-								</select>
-							</div>
-						
-							<label for="filterLearningArea3" class="hide">Learning Area</label>
-							<div class="inputHolder">
-								<select id="filterLearningArea3" disabled="disabled">
-									<option>Select</option>
-								</select>
-							</div>
-							
-							<label for="stage" class="stage">Stage</label>
-							<div class="inputHolder styledSelect" id="stageHolder">
-								<select id="stage">
-									<option>Select</option>
-									<option value="1">Pre-School</option>
-									<option value="2">Early Stage 1</option>
-									<option value="3">Stage 1</option>
-									<option value="4">Stage 2</option>
-									<option value="5">Stage 3</option>
-									<option value="6">Stage 4</option>
-									<option value="7">Stage 5</option>
-									<option value="8">Stage 6</option>
-								</select>
-							</div>
-						
-							<input type="submit" value="Filter" />
-						</div>
-					
+						</div>		
 					</div>
 				</form>
 			</div>			

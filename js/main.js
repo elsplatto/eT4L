@@ -19,6 +19,18 @@ $(document).ready(function() {
 		});	
 	}
 	
+	
+	
+	$('#chkFilterFree').change(function(){
+		if ($(this).is(':checked')) {
+			//console.log('checked');
+			//$('#priceRangeSection').slideUp('slow');
+		}else{
+			//console.log('not checked');
+			//$('#priceRangeSection').slideDown('slow');
+		}
+	})
+	
 	$('.app a.remove').click(function(e) {
 		e.preventDefault();
 		//ajax removal from database can go here
@@ -80,7 +92,13 @@ $(document).ready(function() {
 		}		
 	});
 	
-	$('a.addLicense').each(function(i) {
+	$('#submitLicense').live('click',function(e) {
+		e.preventDefault();
+		$('.licenseOverlayHolder').html('');
+		$('.licenseOverlayHolder').load('overlays/license-confirm.html');
+	});
+	
+	$('a.addLicense, a.getSoftware').each(function(i) {
 		$(this).qtip(
 		{
 			style: {
@@ -99,12 +117,13 @@ $(document).ready(function() {
 						//console.log('here')
 						// Set the content manually (required!)
 						this.set('content.text', data);
-						$('a.cancel').click(function(e){
-							e.preventDefault();
+						$('a.cancel').live('click', function(e){
+							e.preventDefault();	
 							$('.qtip-close').trigger('click');
 						});
-						$('.licenseCodeHolder select').selectbox();
-					}
+						$('.licenseOverlayHolder select').selectbox();
+					},
+					once:false
 				}
 			},
 			position: {

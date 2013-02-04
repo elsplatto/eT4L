@@ -11,7 +11,7 @@ textarea {
 }
 
 html {	
-	background: url(img/greyTextureBg.gif);
+	/*background: url(img/greyTextureBg.gif);*/
 }
 
 body {
@@ -332,11 +332,13 @@ header a {
 #filterArea .column2, 
 #filterArea .column3 {
 	position:relative;
+	display:inline-block;
 	float:left;
 	height:auto;
 	padding: 0 0 0 15px;
 	min-height:22px;
 }
+
 
 #filterArea .column1 {
 	clear:left;
@@ -398,13 +400,6 @@ header a {
 	left:-10px;
 }
 
-/*#filterArea .fullRow  label.stage {
-	display:inline-block;
-	width:50px;
-	clear:none;
-	margin: 0 0 0 10px;
-}*/
-
 #filterArea .fullRow .inputHolder {
 	float:left;
 	margin:0 10px 0 0;
@@ -465,7 +460,18 @@ header a {
 	width: 180px;;
 }
 
-.licenseCodeHolder .sbHolder {
+.licenseInfo p {
+	padding:0 0 20px 0;
+	margin:0;
+}
+
+.licenseInfo a.cancel {
+	margin:0 0 0 0;
+}
+
+.licenseOverlayHolder {padding:0}
+
+.licenseOverlayHolder .sbHolder {
 	width:78px;
 	padding:0;
 	margin:0;
@@ -474,15 +480,15 @@ header a {
 	float:left;
 }
 
-.licenseCodeHolder #addLicense label {
+.licenseOverlayHolder #addLicense label {
 	float:left;
 }
 
-.licenseCodeHolder #addLicense .sbHolder {
+.licenseOverlayHolder #addLicense .sbHolder {
 	float:left;
 }
 
-.licenseCodeHolder .seatHolder .sbHolder {
+.licenseOverlayHolder .seatHolder .sbHolder {
 	float:right;
 }
 
@@ -499,7 +505,7 @@ header a {
 #stageHolder .sbSelector{
 	width: 160px;
 }
-.licenseCodeHolder .sbSelector {
+.licenseOverlayHolder .sbSelector {
 	width:46px;
 	height:15px;
 	text-align:left;
@@ -535,7 +541,7 @@ header a {
 	cursor:default;
 }
 
-.licenseCodeHolder .sbHolderDisabled .sbToggle:link, .licenseCodeHolder .sbHolderDisabled .sbToggle:visited, .licenseCodeHolder .sbHolderDisabled .sbToggle:hover {
+.licenseOverlayHolder .sbHolderDisabled .sbToggle:link, .licenseOverlayHolder .sbHolderDisabled .sbToggle:visited, .licenseOverlayHolder .sbHolderDisabled .sbToggle:hover {
 	background: url(img/dropDownArrows.png) 0 0 no-repeat;
 	cursor:default;
 }
@@ -547,7 +553,7 @@ header a {
 }
 
 
-.licenseCodeHolder .sbSelector:link, .licenseCodeHolder .sbSelector:visited, .licenseCodeHolder .sbSelector:hover {
+.licenseOverlayHolder .sbSelector:link, .licenseOverlayHolder .sbSelector:visited, .licenseOverlayHolder .sbSelector:hover {
 	color: #4d4d4d;
 	outline: none;
 	text-decoration: none;	
@@ -576,7 +582,7 @@ header a {
 	width: 25px;
 }
 
-.licenseCodeHolder .sbToggle {
+.licenseOverlayHolder .sbToggle {
 	background: url(img/dropDownArrows.png) 0 0 no-repeat;
 	display: block;
 	height: 31px;
@@ -590,7 +596,7 @@ header a {
 .sbToggle:hover{
 	background: url(img/dropDownArrows.png) 0 -224px no-repeat;
 }
-.licenseCodeHolder .sbToggle:hover {
+.licenseOverlayHolder .sbToggle:hover {
 	background: url(img/dropDownArrows.png) 0 -61px no-repeat;
 }
 
@@ -599,7 +605,7 @@ header a {
 }
 
 
-.licenseCodeHolder .sbToggleOpen{
+.licenseOverlayHolder .sbToggleOpen{
 	background: url(img/dropDownArrows.png) 0 -122px no-repeat;
 }
 
@@ -638,7 +644,7 @@ header a {
 	border-radius:5px;
 }
 
-.licenseCodeHolder .sbOptions {
+.licenseOverlayHolder .sbOptions {
 	width:75px;
 	text-align:left;
 	top:30px !important;
@@ -651,7 +657,7 @@ header a {
 	padding: 0 7px;
 }
 
-.licenseCodeHolder .sbOptions li {
+.licenseOverlayHolder .sbOptions li {
 	background-color:#fff;
 }
 
@@ -666,7 +672,7 @@ header a {
 	text-decoration: none;
 }
 
-.licenseCodeHolder .sbOptions a:link, .licenseCodeHolder .sbOptions a:visited{
+.licenseOverlayHolder .sbOptions a:link, .licenseOverlayHolder .sbOptions a:visited{
 	color: #4d4d4d;
 	text-decoration: none;
 }
@@ -677,9 +683,9 @@ header a {
 	color: #EBB52D;
 }
 
-.licenseCodeHolder .sbOptions a:hover,
-.licenseCodeHolder .sbOptions a:focus,
-.licenseCodeHolder .sbOptions a.sbFocus{
+.licenseOverlayHolder .sbOptions a:hover,
+.licenseOverlayHolder .sbOptions a:focus,
+.licenseOverlayHolder .sbOptions a.sbFocus{
 	color: #4d4d4d;
 }
 
@@ -706,6 +712,14 @@ header a {
 }
 
 
+#priceRangeSection {
+	width:100%;
+	height:auto;
+	display:block;
+	position:relative;
+	overflow:hidden;
+}
+
 #filterArea #priceSliderHolder {
 	width:560px;
 	height:auto;
@@ -715,10 +729,6 @@ header a {
 	position:relative;
 	float:left;
 }
-
-
-
-
 
 
 
@@ -2436,6 +2446,7 @@ button.on {
 #footerContainer {
 	width:100%;
 	height:auto;
+	background: url(img/greyTextureBg.gif);
 }
 
 
@@ -2592,6 +2603,15 @@ ul.noBullet {
 .hideText {
 	position:relative;
 	text-indent:-9999px;
+}
+
+.noMargin {
+	margin:0;
+}
+
+
+.noPadding {
+	padding:0 !important;
 }
 
 .marginTop10 {
