@@ -11,13 +11,53 @@ textarea {
 }
 
 html {	
+	height:100%;
+	width:100%;
 	/*background: url(img/greyTextureBg.gif);*/
 }
 
 body {
+	height:100%;
+	width:100%;
     font-size: 1em;
     line-height: 1.4;
 	font-family: 'Varela Round', Helvetica, Arial, sans-serif;
+}
+
+body.login #contentContainer {
+	width:100%;
+	height:80%;
+	display:block;
+	position:relative;
+	overflow:hidden;
+}
+
+body.login #contentArea {
+	padding-top:100px;
+}
+
+body.login #footerContainer {
+	height:20%;
+}
+
+body.login label {
+	display:inline-block;
+	width:80px;
+	font-size:14px;
+}
+
+.frmElementHolder {
+	width:100%;
+	height:auto;
+	display:block;
+	margin-top:20px;
+}
+
+input {
+	width:295px;
+	height:26px;
+	border:2px solid #b6b0b0;
+	border-radius:5px;
 }
 
 ::-moz-selection {
@@ -1176,14 +1216,16 @@ nav .navContainer {
 
 
 #contentContainer {
+	display:inline-block;
 	width:100%;
 	height:auto;
+	overflow:hidden;
 	border-top:1px solid #7e7f7f;
-	background:transparent url(img/contentContainerBg.gif);
+	background:transparent url(img/contentContainerBg.gif) center top;
 }
 
 .mySoftware #contentContainer {
-	background:transparent url(img/contentContainerBlueBg.gif);
+	background:transparent url(img/contentContainerBlueBg.gif) center top;
 }
 
 #contentArea {
@@ -2326,8 +2368,17 @@ button.on {
 	float:right;
 }
 
-.app .greenButton {	
-	padding:7px 17px;
+.app .greenButton, .app .purpleButton  {	
+	padding:7px 5px;
+}
+
+.login .greenButton {
+	padding:7px 20px;
+}
+
+.login a.cancel {
+	display:inline-block;
+	margin:5px 0 5px 50px;
 }
 
 .greenButton {	
@@ -2355,6 +2406,7 @@ button.on {
 	line-height:14px;
 	color:#fff;
 	width:auto;
+	height:auto;
 	padding:7px 5px;
 	text-shadow: 1px 1px 0px #386674;
 }
@@ -2620,6 +2672,10 @@ ul.noBullet {
 
 .marginTop20 {
 	margin-top:20px !important;
+}
+
+.marginTop40 {
+	margin-top:40px !important;
 }
 
 .marginBottom10 {

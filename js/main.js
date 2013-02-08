@@ -98,7 +98,18 @@ $(document).ready(function() {
 		$('.licenseOverlayHolder').load('overlays/license-confirm.html');
 	});
 	
-	$('a.addLicense, a.getSoftware').each(function(i) {
+	$('.licensePurchaseInfo, .licenseInfo').live('click',function(e) {
+		e.preventDefault();
+		//$('.licenseOverlayHolder').html('');
+		//$('.licenseOverlayHolder').load($(this).attr('href'));
+		$.ajax({
+		  url:$(e.target).attr('href')
+		}).done(function(data){
+			$('.licenseOverlayHolder').html(data);
+		});
+	});
+	
+	$('a.enterLicense, a.getSoftware, a.buyLicense').each(function(i) {
 		$(this).qtip(
 		{
 			style: {

@@ -35,9 +35,16 @@
 				<option value="7">7</option>
 			</select>
 			<span>more license(s)</span>
+			
 			<p>
-				Don't have a license?<a href="#"> Get a license here</a>.
+				Don't have a license?
+				<!--if vendor url exists-->
+					<a href="overlays/license-purchase-info.html" class="licensePurchaseInfo"> Get a license here</a>.
+				<!--else-->
+					<a href="overlays/license-info.html" class="licenseInfo"> Learn about licenses here</a>
 			</p>
+			
+			
 		</div>
 		
 		<div id="notes">
