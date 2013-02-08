@@ -32,16 +32,21 @@
 .formModal label, .formModal span, .formModal p {
 	font-size:14px;
 	color:#4d4d4d;
+	display:block;
+}
+
+.formModal .inline {
 	display:inline-block;
 }
 
 .formModal .seatHolder label {
 	margin:6px 10px 0 0;
+	display:inline-block;
 }
 
 .formModal input[type='text'] {
 	width:288px;
-	padding:5px 0;
+	padding:2px 0;
 	border:2px solid #b9b3b2;
 	border-radius:5px;
 }
@@ -95,6 +100,8 @@
 
 .formModal label.large {
 	font-size:18px;
+	margin-bottom:5px;
+	display:inline-block;
 }
 
 .formModal .cancel {
