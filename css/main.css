@@ -635,7 +635,7 @@ header a {
 }
 
 .sbToggle:hover{
-	background: url(img/dropDownArrows.png) 0 -224px no-repeat;
+	/*background: url(img/dropDownArrows.png) 0 -224px no-repeat;*/
 }
 .licenseOverlayHolder .sbToggle:hover {
 	background: url(img/dropDownArrows.png) 0 -61px no-repeat;
@@ -723,10 +723,18 @@ header a {
 	text-decoration: none;
 }
 
+.sbOptions li:hover,
+.sbOptions li:focus,
+.sbOptions li:hover a.sbFocus,
+.sbOptions li:focus a.sbFocus,
 .sbOptions a:hover,
-.sbOptions a:focus,
-.sbOptions a.sbFocus{
-	color: #EBB52D;
+.sbOptions a:focus{
+	color: #333;
+	background-color:#b9be6b;
+}
+
+.sbOptions a.sbFocus {
+	color:#fff;
 }
 
 .licenseOverlayHolder .sbOptions a:hover,
