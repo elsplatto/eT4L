@@ -1663,6 +1663,7 @@ button {
 		color-stop(0.23, #afafaf),
 		color-stop(0.87, #d1d1d1)
 	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#d1d1d1', EndColorStr='#afafaf');
 	border: 1px solid #b4b4b4;
 	border-radius:3px;
 	color:#4d4d4d;
@@ -1701,6 +1702,12 @@ button.on {
 	padding:0;
 }
 
+.lt-ie9 #viewByThumb, .lt-ie9 #viewByList,
+.lt-ie9 #viewByThumb.on, .lt-ie9 #viewByList.on {
+	height:26px;
+}
+
+
 #viewByList {
 	margin-left:10px;
 }
@@ -1714,14 +1721,6 @@ button.on {
 	height:18px;
 	z-index: 1;
 	background-image:url(img/buttonSprite.png);	
-}
-
-.lt-ie9 #viewByList, .lt-ie9 #viewByThumb {
-	height:27px;
-}
-
-.lt-ie9 #viewByList:before, .lt-ie9 #viewByThumb:before {
-	top:2px;
 }
 
 #viewByList:before {
@@ -1738,6 +1737,15 @@ button.on {
 
 #viewByThumb.on:before {
 	background-position:-57px -103px;
+}
+
+
+.lt-ie9 #viewByThumb:before, .lt-ie9 #viewByList:before {
+	top:0px;
+}
+
+.lt-ie9 #viewByThumb.on:before, .lt-ie9 #viewByList.on:before {
+	top:2px;
 }
 
 .buttonContainer span{
