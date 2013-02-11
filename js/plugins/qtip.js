@@ -2484,6 +2484,11 @@ function Tip(qTip, command)
 				context.lineWidth = border * 2;
 				context.lineJoin = 'miter';
 				context.miterLimit = 100;
+				
+				//drop shadow on tip				
+				context.shadowBlur=5;
+				context.shadowOffsetY=5;
+				context.shadowColor="grey";
 
 				// Translate origin
 				context.translate(translate[0], translate[1]);

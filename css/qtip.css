@@ -18,6 +18,10 @@
 	background:#ebebeb;
 }
 
+.qtip-preview {
+	width:1000px;
+}
+
 .formModal textarea {
 	width:485px;
 	height:110px;
@@ -47,6 +51,7 @@
 .formModal input[type='text'] {
 	width:288px;
 	padding:2px 0;
+	height:23px;
 	border:2px solid #b9b3b2;
 	border-radius:5px;
 }

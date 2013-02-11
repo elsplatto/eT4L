@@ -157,33 +157,39 @@ $(document).ready(function() {
 	
 	$('a.viewInfo').each(function(i)
 	{
-		var triggerElTop, triggerElLeft, targetElLeft, finalOffset
-		triggerElLeft = $(this).offset().left - 120;
-		triggerElTop = $(this).offset().top + 15;
-		targetElLeft = $('#contentArea').offset().left + 10;
+		var triggerElTop, triggerElLeft, targetElLeft, finalOffset;
 		
 		// We make use of the .each() loop to gain access to each element via the "this" keyword...
 		$(this).qtip(
 		{
+			style: {
+				classes: 'qtip-preview'
+			},
 			show: {
 				event: 'click'
 			},
 			hide: {
 				event: 'unfocus'
-			},
-			style: {
-				width: '1000px',
-				tip: {
-					width: 20,
-					height:40,
-					offset: triggerElLeft
+			},			
+			events: {
+				show: function(event, api) {
+					
+					triggerElLeft = $(event.originalEvent.currentTarget).offset().left - 120;
+					triggerElTop = $(event.originalEvent.currentTarget).offset().top + 15;
+					targetElLeft = $('#contentArea').offset().left + 10;
+					
+					api.options.style.tip.width = 20,
+					api.options.style.tip.height = 40;
+					api.options.style.tip.offset = triggerElLeft;
+					
+					api.options.position.viewport = $(window);
+					api.options.position.target = [targetElLeft,triggerElTop];
+					api.options.position.adjust.x = triggerElLeft;
+					
 				}
 			},
-			position: {
-				viewport: $(window),
-				target: [targetElLeft,triggerElTop],
-				adjust: {x:triggerElLeft}
-			},
+			
+			
 			content: {
 				// Set the text to an image HTML string with the correct src URL to the loading image you want to use
 				text: '<img class="throbber" src="img/loading.gif" alt="Loading..." />',
@@ -243,6 +249,7 @@ $(document).ready(function() {
 		$('#priceSlider').slider('values',[0,1000]);
 		$('#filterLearningArea2').selectbox('disable');
 		$('#filterLearningArea3').selectbox('disable');
+		$('section.app:hidden').show();
 	});
 	
 	$('#priceSlider').slider({
