@@ -426,7 +426,7 @@ header a {
 	display:none;
 }
 
-#filterArea .fullRow label {
+#filterArea .fullRow label, #filterArea .fullRow span {
 	display:inline-block;
 	margin-right:2px;
 }
@@ -827,6 +827,10 @@ header a {
 	float:left;
 	margin-left:15px;
 	text-indent:0px;
+}
+
+#filterArea .amounts label {
+	display:none;
 }
 
 #filterArea select {
