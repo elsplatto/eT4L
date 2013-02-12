@@ -638,7 +638,7 @@ header a {
 	/*background: url(img/dropDownArrows.png) 0 -224px no-repeat;*/
 }
 .licenseOverlayHolder .sbToggle:hover {
-	background: url(img/dropDownArrows.png) 0 -61px no-repeat;
+	background: url(img/dropDownArrows.png) 0 0 no-repeat;
 }
 
 .sbToggleOpen{
