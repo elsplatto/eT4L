@@ -17,9 +17,7 @@ $(document).ready(function() {
 				$(this).text('Show less');
 			}
 		});	
-	}
-	
-	
+	}	
 	
 	$('#chkFilterFree').change(function(){
 		if ($(this).is(':checked')) {
@@ -29,12 +27,28 @@ $(document).ready(function() {
 			//console.log('not checked');
 			//$('#priceRangeSection').slideDown('slow');
 		}
-	})
+	});
+	
+	$('#alertsArea .cancel').click(function(e){
+		e.preventDefault();		
+		var holderEl, alertHolderEl, alertCount, alertTabText;		
+		holderEl = $(this).closest('ul');
+		//ajax removal from database can go here
+		//place element removal and alert count function in success callback
+		$(holderEl).parent('li').remove();		
+		alertCount = $('#alertsArea ul > li').not('li li').length; //don't count grandchild elements
+		if (alertCount === 1) {
+			alertTabText = '1 Alert';
+		} else {
+			alertTabText = alertCount + ' Alerts';
+		}
+		$('#alertTab a').text(alertTabText);		
+	});
 	
 	$('.app a.remove').click(function(e) {
 		e.preventDefault();
 		//ajax removal from database can go here
-		//place element removal functionon succes callback
+		//place element removal function in success callback
 		$(this).closest('section.app').remove();
 	});
 	
@@ -447,7 +461,7 @@ $(document).ready(function() {
 			display: 'list-item'
 		})
 		nextSib.css({
-			borderLeftColor: 'transparent',
+			borderLeftColor: 'transparent'
 		})
 		activeEl.css({
 			backgroundColor: 'transparent',

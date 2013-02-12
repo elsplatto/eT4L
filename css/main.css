@@ -698,7 +698,13 @@ header a {
 	padding: 0 7px;
 }
 
-.licenseOverlayHolder .sbOptions li:hover, .licenseOverlayHolder .sbOptions li:hover a {
+.licenseOverlayHolder .sbOptions li:hover,
+.licenseOverlayHolder .sbOptions li:focus,
+.licenseOverlayHolder .sbOptions li:hover a.sbFocus,
+.licenseOverlayHolder .sbOptions li:focus a.sbFocus,
+.licenseOverlayHolder .sbOptions a:hover,
+.licenseOverlayHolder .sbOptions a:focus
+{
 	background-color:#333;
 	color:#fff;
 }
@@ -2257,6 +2263,12 @@ button.on {
 	box-shadow:2px 3px 2px 0 #bebfbf;
 }
 
+.list .app .remove {
+	border:2px solid #fff;
+	width:15px;
+	height:15px;
+}
+
 .list .app .remove:before,
 .thumbnails .app .remove:before {
 	content: '';
@@ -2268,6 +2280,14 @@ button.on {
 	z-index: 0;
 	background-image: url(img/sprite-1.png);
 	background-position:-2px -367px;
+}
+
+.list .app .remove:before {
+	top:7px;
+	left:3px;
+	width:9px;
+	height:3px;
+	background-position:-25px -367px;
 }
 
 .list .app .licenses,
@@ -2286,6 +2306,15 @@ button.on {
 	color:#fff;
 	text-align:center;
 	font-size:12px;
+}
+
+.list .app .licenses {
+	line-height:1.2em;
+	min-width:10px;
+	height:10px;
+	border:2px solid #fff;
+	font-size:10px;
+	padding:4px;
 }
 
 /*List view for apps classes*/
@@ -2535,6 +2564,10 @@ button.on {
 
 .app .greenButton, .app .purpleButton  {	
 	padding:7px 5px;
+}
+
+.list .app .greenButton, .list .app .purpleButton {
+	width:90px;
 }
 
 .login .greenButton {
