@@ -35,21 +35,66 @@ $(document).ready(function() {
 		holderEl = $(this).closest('ul');
 		//ajax removal from database can go here
 		//place element removal and alert count function in success callback
-		$(holderEl).parent('li').remove();		
-		alertCount = $('#alertsArea ul > li').not('li li').length; //don't count grandchild elements
-		if (alertCount === 1) {
-			alertTabText = '1 Alert';
-		} else {
-			alertTabText = alertCount + ' Alerts';
-		}
-		$('#alertTab a').text(alertTabText);		
+		alertHolderEl = $(holderEl).parent('li');
+		//$(alertHolderEl).remove();
+		
+		$.get('overlays/confirm-remove.html', function(data){ 
+			$(data).appendTo($(alertHolderEl));
+			$('#alertsArea a.confirm').click(function(e){
+				e.preventDefault();
+				/*
+				=======================================================
+				ajax removal from database can go here
+				place element removal function in success callback
+				=======================================================
+				*/
+				$(alertHolderEl).remove();
+				
+				//Now, adjust alert tab count
+				alertCount = $('#alertsArea ul > li').not('li li').length; //don't count grandchild elements
+				if (alertCount === 1) {
+					alertTabText = '1 Alert';
+				} else {
+					alertTabText = alertCount + ' Alerts';
+				}
+				$('#alertTab a').text(alertTabText);
+			});
+			
+			$('#alertsArea a.cancel').click(function(e){
+				e.preventDefault();
+				$(this).closest('.confirmRemove').remove();
+			});
+		});
+		
+				
 	});
 	
 	$('.app a.remove').click(function(e) {
 		e.preventDefault();
-		//ajax removal from database can go here
-		//place element removal function in success callback
-		$(this).closest('section.app').remove();
+		var section, removeButton;
+		removeButton = $(this);
+		section = $(removeButton).closest('section.app');
+		$(this).hide();
+		$.get('overlays/confirm-remove.html', function(data){ 
+			$(data).appendTo(section);
+			$('.app a.confirm').click(function(e){
+				e.preventDefault();
+				/*
+				=======================================================
+				ajax removal from database can go here
+				place element removal function in success callback
+				=======================================================
+				*/
+				$(this).closest('section.app').remove();
+			});
+			$('.app a.cancel').click(function(e){
+				e.preventDefault();
+				$(this).closest('.confirmRemove').remove();
+				$(removeButton).show();
+			});
+		});
+		
+		
 	});
 	
 	
