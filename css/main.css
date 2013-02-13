@@ -208,9 +208,6 @@ header a {
 	text-shadow:1px 1px 0px #e4eef1;
 }
 
-.lt-ie8 #alertsContainer, .lt-ie8 #filterContainer {
-	height:5px;
-}
 
 #alertsContainer, #filterContainer {
 	background: url(img/greyTextureBg.gif);
@@ -431,6 +428,15 @@ header a {
 #filterArea .fullRow label, #filterArea .fullRow span {
 	display:inline-block;
 	margin-right:2px;
+}
+
+#filterArea #priceRangeSection .fullRow span {
+	float:left;
+	font-size:12px;
+	color:#999;
+	padding:5px 0 15px 0;
+	clear:left;
+	width:123px;
 }
 
 #filterArea .column3 label[for='filterOperatingSystem'], #filterArea .column3 .filterCheckboxContainer span.label {
@@ -1246,7 +1252,6 @@ nav .navContainer {
 	width:100%;
 	height:auto;
 	overflow:hidden;
-	/*border-top:1px solid #7e7f7f;*/
 	background:transparent url(img/contentContainerBg.gif) center top;
 }
 
@@ -1262,7 +1267,7 @@ nav .navContainer {
 	margin:0 auto;
 	top:-1px;
 	z-index:50;
-	padding:0 0 150px 0;
+	padding:0 0 100px 0;
 	overflow:visible;
 	background:inherit;
 }
@@ -1273,7 +1278,6 @@ nav .navContainer {
 	width:1025px;
 	height:auto;
 	margin:0 auto;
-	background:inherit;
 }
 
 .twoCol .titleArea {
@@ -1411,11 +1415,12 @@ blockquote small.author {
 
 #filterTab {
 	position: absolute;
+	display:block;
 	left:395px;
 	width:225px;
 	height:26px;
 	background:url(img/filterTabBg.png) no-repeat;
-	z-index:1;
+	z-index:1
 }
 
 #filterTab a {
@@ -2102,14 +2107,28 @@ button.on {
 	vertical-align:top;
 }
 
-.summary .description .green {
+.green {
 	padding:5px 10px;
 	float:left;
 	background-color:#3d7d92;
 	font-size:12px;
 	color:#fff;
 	border:1px solid transparent;
-	border-radius:15px;
+	border-radius:16px;
+}
+
+#licenseInputs .green {
+	padding:2px;
+	font-size:10px;
+	width:18px;
+	text-align:center;
+}
+
+#licenseInputs #codeHelp {
+	position:absolute;
+	right:-18px;
+	top:3px;
+	z-index:100;
 }
 
 .summary .description div.boxLeft,

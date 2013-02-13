@@ -138,8 +138,7 @@
 	.qtip-content{
 		position: relative;
 		padding: 5px 9px;
-		overflow: hidden;
-
+		/*overflow: hidden;*/
 		text-align: left;
 		word-wrap: break-word;
 	}

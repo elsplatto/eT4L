@@ -192,6 +192,39 @@ $(document).ready(function() {
 							$('.qtip-close').trigger('click');
 						});
 						$('.licenseOverlayHolder select').selectbox();
+						
+						
+						
+						
+						
+						if ($('#codeHelp').length > 0)
+						{	
+							$('#codeHelp').click(function(e) {
+								e.preventDefault();
+							})
+							
+							$('#codeHelp').qtip({
+								content: {
+									attr: 'title'
+								},
+								position: {
+										my: 'top center',  // Position my top left...
+										at: 'bottom center' // at the bottom right
+								},
+								hide: {
+									event: 'unfocus'
+								},
+								style: {
+									width: '300px',
+									classes: 'license-tip',
+									tip: {
+										width: 26,
+										height:13
+									}
+								}
+							});
+						}						
+						
 					},
 					once:false
 				}
@@ -302,6 +335,7 @@ $(document).ready(function() {
 			}
 		});
 	}
+	
 	
 	$('#filterArea input[type="reset"]').click(function(){
 		$('a.sbSelector').text('Select');
