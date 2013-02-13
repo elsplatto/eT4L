@@ -2673,6 +2673,12 @@ button.on {
 	margin:5px 0 5px 50px;
 }
 
+.login .errorPanel {
+	color:#9e0b0f;
+	font-size:14px;
+	padding:10px 0 0 0;
+}
+
 .greenButton {	
 	text-align:center;
 	position:relative;
