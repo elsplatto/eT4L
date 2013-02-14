@@ -1756,13 +1756,17 @@ button.on {
 	background-position:-57px -103px;
 }
 
+.lt-ie9 #viewByThumb.on, .lt-ie9 #viewByList.on {
+	top:0px;
+}
+
 
 .lt-ie9 #viewByThumb:before, .lt-ie9 #viewByList:before {
 	top:0px;
 }
 
 .lt-ie9 #viewByThumb.on:before, .lt-ie9 #viewByList.on:before {
-	top:2px;
+	top:0px:
 }
 
 .buttonContainer span{
@@ -1921,7 +1925,7 @@ button.on {
 
 .js #filterArea .filterCheckboxHolder label {
 	position:relative;
-	z-index:100;
+	z-index:10;
 	padding:0 10px 0 45px;
 	margin: 0 0 15px 0;
 }
@@ -2122,6 +2126,13 @@ button.on {
 	font-size:10px;
 	width:18px;
 	text-align:center;
+}
+
+#licenseInputs .removeInputs {
+	display:none;
+	position:absolute;
+	right:-10px;
+	top:5px;
 }
 
 #licenseInputs #codeHelp {
@@ -2567,6 +2578,17 @@ button.on {
 	position:relative;
 	float:left;
 	color:#3d7d92;
+	padding:7px 0 6px 0;
+	margin:0;
+}
+
+/*
+With icon
+
+.viewInfo {
+	position:relative;
+	float:left;
+	color:#3d7d92;
 	padding:7px 0 6px 12px;
 	margin:0;
 }
@@ -2582,6 +2604,8 @@ button.on {
 	background-image: url(img/sprite-1.png);
 	background-position:0px -101px;
 }
+
+*/
 
 #alertsArea li .confirmRemove,
 .list .app .confirmRemove,

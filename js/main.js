@@ -98,6 +98,7 @@ $(document).ready(function() {
 	});
 	
 	
+	
 	$('#add').live('change',function(){
 		var increaseNum, i, lastChildHolder, counter, newCount, newSet, oldString, newString;		
 		increaseNum = $(this).val();	
@@ -110,7 +111,7 @@ $(document).ready(function() {
 			newString = '-'+(newCount);		
 			newSet = lastChildHolder.clone();	//get a copy of the last div
 			$(newSet).attr('data-count',(newCount)); //get the counter
-			
+			$(newSet).append('<a href="#" class="removeInputs" title="Remove this line of license codes">x</a>')
 			$(newSet).find('div.sbHolder').remove();
 			
 			
@@ -142,7 +143,19 @@ $(document).ready(function() {
 					$(this).attr('for',attrString);
 				}
 				$('#licenseInputs').append(newSet);
+				
+				$('#licenseInputs .holder').hover(
+					function() {
+						console.log('show')
+						$(this).find('.removeInputs').show();
+					},
+					function() {
+						console.log('hide')
+						$(this).find('.removeInputs').hide();
+					}
+				);
 				//style selectbox element
+				$(newSet).find('select').children('option:first-child').attr('selected','selected')
 				$(newSet).find('select').selectbox();
 				//reselt styled selectbox element
 				$(newSet).find('.sbSelector').text('1');
