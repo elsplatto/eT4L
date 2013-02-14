@@ -152,8 +152,15 @@ $(document).ready(function() {
 					function() {
 						console.log('hide')
 						$(this).find('.removeInputs').hide();
-					}
+					}					
 				);
+				
+				$('#licenseInputs .holder .removeInputs').click(function() {
+					$(this).closest('.holder').remove();
+				});
+				
+				
+				
 				//style selectbox element
 				$(newSet).find('select').children('option:first-child').attr('selected','selected')
 				$(newSet).find('select').selectbox();
